@@ -23,7 +23,7 @@ Using an Arch based distro(Arch,CachyOS,EndevourOS, I know you know you're on Ar
 
 (not Steam Deck check PGR discord or Steam Deck/Univseral Guide that will covered soon if not already)
 
-This package is installed form Arch User Rep
+This package is installed form Arch User Repo
 
 https://aur.archlinux.org/packages/bbe
 
