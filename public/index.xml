@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Blowfish</title>
+    <link>//localhost:34827/</link>
+    <description>Recent content on Blowfish</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>© 2025 </copyright>
+    <lastBuildDate>Thu, 04 Dec 2025 00:00:00 +0000</lastBuildDate><atom:link href="//localhost:34827/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Punishing Gray Raven on Linux</title>
+      <link>//localhost:34827/posts/pgr-copy-2/</link>
+      <pubDate>Thu, 04 Dec 2025 00:00:00 +0000</pubDate>
+      
+      <guid>//localhost:34827/posts/pgr-copy-2/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Punishing Gray Raven on Linux</title>
+      <link>//localhost:34827/posts/pgr-copy/</link>
+      <pubDate>Thu, 04 Dec 2025 00:00:00 +0000</pubDate>
+      
+      <guid>//localhost:34827/posts/pgr-copy/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Punishing Gray Raven on Linux</title>
+      <link>//localhost:34827/posts/pgr/</link>
+      <pubDate>Thu, 04 Dec 2025 00:00:00 +0000</pubDate>
+      
+      <guid>//localhost:34827/posts/pgr/</guid>
+      <description></description>
+      
+    </item>
+    
+  </channel>
+</rss>
