@@ -5,7 +5,7 @@ date =  "2025-12-04"
 
 ### We need to get bbe installed on our Linux Desktops System
 
-### Steam Deck users would need another video/guide but PGR official server does have a good guide and help section using the Universal Method.
+### Steam Deck users would need another video/guide but my discord server does have a good guide and help section using the Universal Method.Will ipload that here soon.
 
 
 # Install **bbe** on Ubuntu/Debian Distros
