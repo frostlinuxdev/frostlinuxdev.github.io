@@ -7,7 +7,7 @@ tags = ["pgr" ,"gacha"]
 {{< youtube bBcmhq-0EZE >}}
 ### We need to get bbe installed on our Linux Desktops System
 
-### Steam Deck users would need another video/guide but PGR official server does have a good guide and help section using the Universal Method.
+### Steam Deck users would need another video/guide but my discord server does have a good guide and help section using the Universal Method.Will ipload that here soon.
 
 
 
