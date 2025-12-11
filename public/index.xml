@@ -7,15 +7,25 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2025 </copyright>
-    <lastBuildDate>Thu, 04 Dec 2025 00:00:00 +0000</lastBuildDate><atom:link href="//localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 09 Dec 2025 00:00:00 +0000</lastBuildDate><atom:link href="//localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Umamusume Pretty Derby on Linux</title>
+      <link>//localhost:1313/posts/umamusumeonlinux/</link>
+      <pubDate>Tue, 09 Dec 2025 00:00:00 +0000</pubDate>
+      
+      <guid>//localhost:1313/posts/umamusumeonlinux/</guid>
+      <description></description>
+      
+    </item>
     
     <item>
       <title>Punishing Gray Raven on Linux</title>
-      <link>//localhost:1313/posts/pgr-copy/</link>
+      <link>//localhost:1313/posts/pgr/</link>
       <pubDate>Thu, 04 Dec 2025 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/posts/pgr-copy/</guid>
-      <description></description>
+      <guid>//localhost:1313/posts/pgr/</guid>
+      <description>Punishing Gray Raven on Linux</description>
       
     </item>
     

@@ -1,11 +1,14 @@
 +++
 title = "Punishing Gray Raven on Linux"
 date =  "2025-12-04"
+summary = "Punishing Gray Raven on Linux"
+tags = ["pgr" ,"gacha"]
 +++
-
+{{< youtube bBcmhq-0EZE >}}
 ### We need to get bbe installed on our Linux Desktops System
 
 ### Steam Deck users would need another video/guide but PGR official server does have a good guide and help section using the Universal Method.
+
 
 
 # Install **bbe** on Ubuntu/Debian Distros

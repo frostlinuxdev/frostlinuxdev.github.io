@@ -7,7 +7,27 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2025 </copyright>
-    <atom:link href="//localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 04 Dec 2025 00:00:00 +0000</lastBuildDate><atom:link href="//localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Gacha</title>
+      <link>//localhost:1313/tags/gacha/</link>
+      <pubDate>Thu, 04 Dec 2025 00:00:00 +0000</pubDate>
+      
+      <guid>//localhost:1313/tags/gacha/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Pgr</title>
+      <link>//localhost:1313/tags/pgr/</link>
+      <pubDate>Thu, 04 Dec 2025 00:00:00 +0000</pubDate>
+      
+      <guid>//localhost:1313/tags/pgr/</guid>
+      <description></description>
+      
+    </item>
     
   </channel>
 </rss>
