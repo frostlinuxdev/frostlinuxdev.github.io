@@ -15,13 +15,7 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>//localhost:1313/posts/umamusumeonlinix/</loc>
-    <lastmod>2025-12-09T00:00:00+00:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>//localhost:1313/posts/umaonlinux/umamusumeonlinix/</loc>
+    <loc>//localhost:1313/posts/umamusumeonlinux/</loc>
     <lastmod>2025-12-09T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
