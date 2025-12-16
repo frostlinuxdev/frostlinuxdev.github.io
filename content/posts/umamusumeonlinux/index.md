@@ -12,7 +12,11 @@ Ensure Steam is installed for your Linux distribution.
 
 Also helpful if UmaMusame is installed first
 
-### 2. ProtonPlus
+# 2. Important!!!!!!!
+First try launch Uma Musame first if does not launch then proceed with the guide.
+
+
+### 3. ProtonPlus
 Install ProtonPlus from Flathub:  
 https://flathub.org/en/apps/com.vysp3r.ProtonPlus  
 Or search for **ProtonPlus** in your software/app manager.
