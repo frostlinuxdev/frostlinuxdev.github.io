@@ -3,18 +3,31 @@ title = "Umamusume: Pretty Derby on Linux"
 date =  "2025-12-09"
 +++
 
-{{< youtube NFQopxdhVlM >}}
 
 ## Required Applications
 
 ### 1. Steam
-Ensure Steam is installed for your Linux distribution. 
+### 2. Uma Musume
+### 3. Try to play the game (should work out of the box)
 
-Also helpful if UmaMusame is installed first
 
-# 2. Important!!!!!!!
-First try launch Uma Musame first if does not launch then proceed with the guide.
 
+# 2. If you have a white screen bug
+Open a terminal and paste the following command
+
+
+```bash
+killall steam # closes steam if it is open
+steam steam://unlockh264/  #fixes videos not playing which is why white screen bug
+```
+ Game should work now
+
+
+# 3. If that fails then
+Can follow the video guide
+
+
+{{< youtube NFQopxdhVlM >}}
 
 ### 3. ProtonPlus
 Install ProtonPlus from Flathub:  
