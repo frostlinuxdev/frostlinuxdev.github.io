@@ -4,7 +4,7 @@ date =  "2025-12-09"
 +++
 
 
-## Required Applications
+# 1. Required Applications
 
 ### 1. Steam
 ### 2. Uma Musume
@@ -29,7 +29,7 @@ Can follow the video guide
 
 {{< youtube NFQopxdhVlM >}}
 
-### 3. ProtonPlus
+### ProtonPlus
 Install ProtonPlus from Flathub:  
 https://flathub.org/en/apps/com.vysp3r.ProtonPlus  
 Or search for **ProtonPlus** in your software/app manager.
@@ -37,12 +37,12 @@ Or search for **ProtonPlus** in your software/app manager.
 
 
 
-### 3. Open ProtonPlus
+### Open ProtonPlus
 
 
 ![Alt text](images/uma/protonplus.png )Download the latest Proton-GE after selecting Steam in top left
 
-### 3. Set Umamusume to use Proton-GE Latest in Compatbility in ProtonPlus
+### Set Umamusume to use Proton-GE Latest in Compatbility in ProtonPlus
 ![Alt text](images/uma/protonplus2.png)
 Go on the Games section on ProtonPlus and set Uma to use Proton-GE
 All done can play now with best compability settings
