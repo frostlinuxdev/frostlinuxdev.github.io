@@ -1,5 +1,5 @@
 +++
-title = "Chaos Zero Nightmare on Linux2"
+title = "Chaos Zero Nightmare on Linux"
 date  = "2026-01-13"
 +++
 
