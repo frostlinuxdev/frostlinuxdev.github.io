@@ -1,0 +1,57 @@
++++
+title = "Chaos Zero Nightmare On Linux "
+date =  "2026-01-13"
++++
+
+
+# 1. Original Guide works just needs an extra step or very frustrating
+
+{{< youtube WXE_aHProwo>}}
+
+
+
+# 1. Open Heroic Games Launcher 
+
+![Alt text](images/czn/image1.png )
+Right clcik to Press the Settings on your CZN Game
+
+#
+Use Proton-GE as wine version if not already (Proton CachyOS is proabably fine aswell)
+# 3. Enable wine wayland to fix the Install frozen bug
+![Alt text](images/czn/image2.png )
+For most of you this should fix the issue.
+
+
+# 3. Alternate method (skip if you did above)
+If you using X11 instead of Wayland here is an alternative fix.
+So would apply to any X11 users (i3,XFCE,Qtile,dwm,ect) or Linux Mint which defualt is X11
+
+![Alt text](images/czn/image3.webp)
+Go to the Settigns Page and Press WINECFG
+(this is to open wine configuration)
+Now you can press install
+![Alt text](images/czn/image4.webp )
+Press the Graphics Tab
+Now you can press install
+![Alt text](images/czn/image5.webp )
+Press emulate virtual desktop.
+(Can change the default size if you want).
+Press Apply then OK
+
+# 4. 
+Launch the game like from Heroic or whatever app you are using and it the bug should be gone.
+
+Can remove the fix you applied by either unticking the box  or disbaling virtual desktop by unticking and doing the same steps
+# 3. Lutris how to enable Wine Wayland
+![Alt text](/images/czn/lutrisimage2.webp)
+Add this enviroment varaiable
+
+```bash
+PROTON_ENABLE_WAYLAND
+```
+then 1 in Values to enable
+# 3. Lutris how to enable virtual Desktop
+![Alt text](/images/czn/lutrisimage1.webp)
+Press emulate virtual desktop.
+then same steps as number Alt method
+Now you can press install
