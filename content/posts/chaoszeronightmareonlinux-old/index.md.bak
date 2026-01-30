@@ -1,24 +1,16 @@
 +++
 title = "Chaos Zero Nightmare on Linux"
-date  = "2026-01-30"
+date  = "2026-01-13"
 +++
 
 
-# Youtube Guide
-{{< youtube YBVMvz0JN8A>}}
-## What you’ll need for this guide
+# 1️⃣  Updated 
+#What is needed for the guide
+Stove Client
+Microsoft Edge Webview 
 
-| Item                        | Description                                           | Download link |
-|-----------------------------|-------------------------------------------------------|---------------|
-| **Stove Client**            | Official client to play the game on Linux.           | [Download here](https://store.onstove.com/en/download) |
-| **Microsoft Edge WebView2** | Runtime required by Stove (provides the web‑view component). | [Get it from Microsoft here](https://developer.microsoft.com/en-us/microsoft-edge/webview2?form=MA13LH) |
-| **Heroic Games Launcher**   | Front‑end for installing and launching games on Linux. | [Install via Flathub](https://flathub.org/en/apps/com.heroicgameslauncher.hgl) |
 
-> *Important:*  
-> Download the Evergreen Bootstrapper for Microsoft Edge WebView2 and save it to your `Downloads` folder 
-![Heroic Settings](images/czn/webview1.png)
-> Download the Stove Client use link above or search engine
-![Heroic Settings](images/czn/stovedl.png)
+{{< youtube WXE_aHProwo>}}
 
 ## 2️⃣  Open the Heroic Games Launcher
 1. Stop the launcher on Heroic Game if you already encounted the bug
