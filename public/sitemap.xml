@@ -4,19 +4,19 @@
 
   <url>
     <loc>//localhost:1313/posts/chaoszeronightmareonlinux/</loc>
-    <lastmod>2026-01-13T00:00:00+00:00</lastmod>
+    <lastmod>2026-01-30T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>//localhost:1313/</loc>
-    <lastmod>2026-01-13T00:00:00+00:00</lastmod>
+    <lastmod>2026-01-30T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>//localhost:1313/posts/</loc>
-    <lastmod>2026-01-13T00:00:00+00:00</lastmod>
+    <lastmod>2026-01-30T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>

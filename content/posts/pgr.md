@@ -4,6 +4,14 @@ date =  "2025-12-04"
 summary = "Punishing Gray Raven on Linux"
 tags = ["pgr" ,"gacha"]
 +++
+
+# Updated Guide for the Steam Release as of 02/02/2026
+{{< youtube dbyDUBL29S4 >}}
+
+
+
+
+# Still Usable but harder method (use Steam if you can)
 {{< youtube bBcmhq-0EZE >}}
 ### We need to get bbe installed on our Linux Desktops System
 
