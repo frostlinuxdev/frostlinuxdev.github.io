@@ -60,7 +60,7 @@ PROTON_ENABLE_WAYLAND=1
 
 ![Winecfg – Wayland](images/czn2/image7.png)
 
-If you already enabled Wayland in your settings, skip to [Launch Stove from Fuagus](#launch).
+If you already enabled Wayland in your settings, skip to [Launch Stove from Fuagus (Click this text)](#launch)
 
 ---
 
@@ -89,7 +89,7 @@ Then click **Search** and locate your `STOVE.exe`. It will look something like:
 /home/user/Fuagus/prefix_name/drive_c/ProgramData/Smilegate/STOVE/STOVE.exe
 ```
 
-or, if you’re using a custom prefix folder:
+For Example my user is frost and my prefix is called czn2:
 
 ```text
 /home/frost/Faugus/czn2/drive_c/ProgramData/Smilegate/STOVE/STOVE.exe
