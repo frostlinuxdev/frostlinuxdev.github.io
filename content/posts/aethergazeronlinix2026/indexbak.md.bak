@@ -1,0 +1,44 @@
++++
+title = "Aether Gazer on Linux All Launcher Guides"
+date  = "2026-02-22"
++++
+
+This is the fix if you game is not launching for gpu related reasons.Like dx11 or vulkan version not suported whenusing pOROTN-GE or PROON-CAHCYOS
+
+
+If you are on older hardware there is two ways to revlve games not launching due to older vulkan support.
+
+One download pORTON sAREK FROM PROTON PLUS
+
+https://flathub.org/en/apps/com.vysp3r.ProtonPlus
+
+https://github.com/Vysp3r/protonplus
+
+ONCE YOU AHVE PROTONPLUS DONWLOADED YOU CAN 
+OPEN protonplus and  SLECT HEROIC GAMES OR HWTAVER LAUNCHER YOU ARE USING IN THE TOP LEFT of protonplus app like this image
+
+THEN press INSTAL PROTON SAREK LATEST
+BY PRESSING THE DOWNLOAD ICON
+
+RELAUNCH YOUR HEROIC AND CHNAGE THE WINE VERSION TO PROTON SARKE LATEST
+
+THAT SHOULD ALLOW FOR YOU TO WORK
+
+THEN YOU CAN PLAY
+2ND METHOD
+
+IF YOU HAVE OLDER HARDWARE THAN THAT THEN  CAN TRY THIS ENVIRMOMENT VIRBALE
+
+
+OR USE THE ENVIROMENT VIRABLE 
+
+PROTON_USE_WINED3D=1
+ COPY THIS INTO ENVIRMOMENT VAIBLES IN THE ADNVACED TAB
+
+ 
+
+ then press the plus button
+
+ can use proton -ge or whatver wine version with this method for aether gazer atleast
+
+ 
