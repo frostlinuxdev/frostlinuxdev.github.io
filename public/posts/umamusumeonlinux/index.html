@@ -211,7 +211,7 @@
     
     
     "mainEntityOfPage": "true",
-    "wordCount": "270"
+    "wordCount": "439"
   }]
   </script>
 
@@ -508,7 +508,7 @@
   <div class="flex flex-row flex-wrap items-center">
     
     
-      <time datetime="2025-12-09T00:00:00&#43;00:00">9 December 2025</time><span class="px-2 text-primary-500">&middot;</span><span>270 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">2 mins</span>
+      <time datetime="2025-12-09T00:00:00&#43;00:00">9 December 2025</time><span class="px-2 text-primary-500">&middot;</span><span>439 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">3 mins</span>
     
 
     
@@ -575,66 +575,90 @@
 
         <div class="article-content max-w-prose mb-20">
           
-<h1 class="relative group">1. Required Applications
-    <div id="1-required-applications" class="anchor"></div>
+<h2 class="relative group">1. Install Steam for your distro then install Uma Musume and just try playing with default Steam Settings
+    <div id="1-install-steam-for-your-distro-then-install-uma-musume-and-just-try-playing-with-default-steam-settings" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
-        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#1-required-applications" aria-label="Anchor">#</a>
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#1-install-steam-for-your-distro-then-install-uma-musume-and-just-try-playing-with-default-steam-settings" aria-label="Anchor">#</a>
     </span>
     
-</h1>
+</h2>
+<p>This should work for most of you.
+To install steam best advice is to search youtbe /search engine for how to install steam for your distro (or its preinstalled already).</p>
+<p>Will add some guides here soon.</p>
+<p>If the game does not launch move onto Step 2 (specifically for white screen fix).If something else is worng comment or ask in discord.
+<figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    alt="Alt text"
+    width="200"
+    height="200"
+    src="/images/uma/uma2.gif"
+    srcset="/images/uma/uma2.gif 800w, /images/uma/uma2.gif 1280w"
+    sizes="(min-width: 768px) 50vw, 65vw"
+    data-zoom-src="/images/uma/uma2.gif"></figure>
+</p>
 
-<h3 class="relative group">1. Steam
-    <div id="1-steam" class="anchor"></div>
+<h2 class="relative group">2.Try the media encorder unlock to fix the white screen issue
+    <div id="2try-the-media-encorder-unlock-to-fix-the-white-screen-issue" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
-        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#1-steam" aria-label="Anchor">#</a>
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#2try-the-media-encorder-unlock-to-fix-the-white-screen-issue" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+<p>Copy these commands into your Terminal/Konsole app</p>
+<p>Either close you steam by right clciking then selecting exit Steam with the taskbar icon or  run this command</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">killall steam      
+</span></span></code></pre></div><p>Once steam is closed or already closed run this command. It should launch steam for your with the corect settings. Only have to do this once on a new steam install.
+Fixes other games if they were not working before.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">steam steam://unlockh264/
+</span></span></code></pre></div><p>Thats it and your Umamusame should no longer have a white screen.
+WE CAN PLAY!!!!
+<figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    alt="Alt text"
+    width="172"
+    height="172"
+    src="/images/uma/uma1.gif"
+    srcset="/images/uma/uma1.gif 800w, /images/uma/uma1.gif 1280w"
+    sizes="(min-width: 768px) 50vw, 65vw"
+    data-zoom-src="/images/uma/uma1.gif"></figure>
+</p>
+
+<h3 class="relative group">If You’re Using the Flatpak Version of Steam (Most people are not using the steam flatpak)
+    <div id="if-youre-using-the-flatpak-version-of-steam-most-people-are-not-using-the-steam-flatpak" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#if-youre-using-the-flatpak-version-of-steam-most-people-are-not-using-the-steam-flatpak" aria-label="Anchor">#</a>
     </span>
     
 </h3>
+<p>If you get  <em>“steam: command not found.”</em>  then you probably have the flatpak for Steam
+You can still unlock the codec with:</p>
+<p>Either close you steam by right clciking the taskbar icon or</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">flatpak <span class="nb">kill</span> com.valvesoftware.Steam     
+</span></span></code></pre></div><p>Once steam is closed or already closed run this command. (Same explanation as above)</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">xdg-open steam://unlockh264/
+</span></span></code></pre></div><blockquote>
+<p><strong>Tip:</strong> Unless you have a specific reason to use the Flatpak the native package for your distribution is what I recommend.</p>
+</blockquote>
+<p>Once Steam has restarted (you’ll see the “Unlock H.264” dialog), launch the game again – the white‑screen issue should be resolved.</p>
 
-<h3 class="relative group">2. Uma Musume
-    <div id="2-uma-musume" class="anchor"></div>
+<h1 class="relative group">3. If none of that works just use Proton-GE instead
+    <div id="3-if-none-of-that-works-just-use-proton-ge-instead" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
-        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#2-uma-musume" aria-label="Anchor">#</a>
-    </span>
-    
-</h3>
-
-<h3 class="relative group">3. Try to play the game (should work out of the box)
-    <div id="3-try-to-play-the-game-should-work-out-of-the-box" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
-        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#3-try-to-play-the-game-should-work-out-of-the-box" aria-label="Anchor">#</a>
-    </span>
-    
-</h3>
-
-<h1 class="relative group">2. If you have a white screen bug
-    <div id="2-if-you-have-a-white-screen-bug" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
-        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#2-if-you-have-a-white-screen-bug" aria-label="Anchor">#</a>
-    </span>
-    
-</h1>
-<p>Open a terminal and paste the following command</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">killall steam <span class="c1"># closes steam if it is open</span>
-</span></span><span class="line"><span class="cl">steam steam://unlockh264/  <span class="c1">#fixes videos not playing which is why white screen bug</span>
-</span></span></code></pre></div><p>Game should work now</p>
-
-<h1 class="relative group">3. If that fails then
-    <div id="3-if-that-fails-then" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
-        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#3-if-that-fails-then" aria-label="Anchor">#</a>
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#3-if-none-of-that-works-just-use-proton-ge-instead" aria-label="Anchor">#</a>
     </span>
     
 </h1>
@@ -653,7 +677,7 @@
     </span>
     
 </h3>
-<p>Install ProtonPlus from Flathub:<br>
+<p>Install ProtonPlus from Flathub or native package on:<br>
 <a
   href="https://flathub.org/en/apps/com.vysp3r.ProtonPlus"
     target="_blank"
@@ -756,83 +780,23 @@ Press the cog icon on your Steam for Uma Musame
 Go into Compability and select Proton-GE</p>
 <p>Can use Proton-CachyOS aswell</p>
 
+<h2 class="relative group">If the game does not launch with Proton-GE
+    <div id="if-the-game-does-not-launch-with-proton-ge" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#if-the-game-does-not-launch-with-proton-ge" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+<p>If for some reason nothing works then try the last resort</p>
+
 <h2 class="relative group">Enjoy the game
     <div id="enjoy-the-game" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
         <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#enjoy-the-game" aria-label="Anchor">#</a>
-    </span>
-    
-</h2>
-
-<h1 class="relative group">Side hint not a bad idea to set all Steam Games to your Proton-GE or Proton-CachyOS
-    <div id="side-hint-not-a-bad-idea-to-set-all-steam-games-to-your-proton-ge-or-proton-cachyos" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
-        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#side-hint-not-a-bad-idea-to-set-all-steam-games-to-your-proton-ge-or-proton-cachyos" aria-label="Anchor">#</a>
-    </span>
-    
-</h1>
-<p>If you need to use a specific one or even a  different one can always set that per game
-<figure><img
-    class="my-0 rounded-md"
-    loading="lazy"
-    decoding="async"
-    fetchpriority="auto"
-    alt="Alt text"
-    width="201"
-    height="75"
-    src="/images/uma/steamall3.png"
-    srcset="/images/uma/steamall3.png 800w, /images/uma/steamall3.png 1280w"
-    sizes="(min-width: 768px) 50vw, 65vw"
-    data-zoom-src="/images/uma/steamall3.png"></figure>
-Select Steam then Settings in top left of Steam</p>
-
-<h3 class="relative group">Set  default to use Proton-GE Latest in Compatbility
-    <div id="set--default-to-use-proton-ge-latest-in-compatbility" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
-        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#set--default-to-use-proton-ge-latest-in-compatbility" aria-label="Anchor">#</a>
-    </span>
-    
-</h3>
-<p>Now every game on Steam will use Proton-GE by default no more setup.
-<figure><img
-    class="my-0 rounded-md"
-    loading="lazy"
-    decoding="async"
-    fetchpriority="auto"
-    alt="Alt text"
-    width="351"
-    height="266"
-    src="/images/uma/steamall2.png"
-    srcset="/images/uma/steamall2.png 800w, /images/uma/steamall2.png 1280w"
-    sizes="(min-width: 768px) 50vw, 65vw"
-    data-zoom-src="/images/uma/steamall2.png"></figure>
-
-<figure><img
-    class="my-0 rounded-md"
-    loading="lazy"
-    decoding="async"
-    fetchpriority="auto"
-    alt="Alt text"
-    width="918"
-    height="660"
-    src="/images/uma/steamall1_hu_61932cfad5bc0b9b.png"
-    srcset="/images/uma/steamall1_hu_61932cfad5bc0b9b.png 800w, /images/uma/steamall1.png 1280w"
-    sizes="(min-width: 768px) 50vw, 65vw"
-    data-zoom-src="/images/uma/steamall1.png"></figure>
-Go into Compability and select Proton-GE</p>
-
-<h2 class="relative group">Enjoy the game and your other games
-    <div id="enjoy-the-game-and-your-other-games" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
-        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#enjoy-the-game-and-your-other-games" aria-label="Anchor">#</a>
     </span>
     
 </h2>

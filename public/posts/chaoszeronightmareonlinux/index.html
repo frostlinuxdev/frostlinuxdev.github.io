@@ -15,8 +15,8 @@
 
   
   
-    <title>Chaos Zero Nightmare on Linux &middot; FrostLinux</title>
-    <meta name="title" content="Chaos Zero Nightmare on Linux &middot; FrostLinux">
+    <title>Chaos Zero Nightmare On Linux - Heroic Games Version &middot; FrostLinux</title>
+    <meta name="title" content="Chaos Zero Nightmare On Linux - Heroic Games Version &middot; FrostLinux">
   
 
   
@@ -34,7 +34,7 @@
   
   <meta property="og:url" content="//localhost:1313/posts/chaoszeronightmareonlinux/">
   <meta property="og:site_name" content="FrostLinux">
-  <meta property="og:title" content="Chaos Zero Nightmare on Linux">
+  <meta property="og:title" content="Chaos Zero Nightmare On Linux - Heroic Games Version">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -43,7 +43,7 @@
 
   
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Chaos Zero Nightmare on Linux">
+  <meta name="twitter:title" content="Chaos Zero Nightmare On Linux - Heroic Games Version">
 
   
   
@@ -192,8 +192,8 @@
     "@context": "https://schema.org",
     "@type": "Article",
     "articleSection": "Posts",
-    "name": "Chaos Zero Nightmare on Linux",
-    "headline": "Chaos Zero Nightmare on Linux",
+    "name": "Chaos Zero Nightmare On Linux - Heroic Games Version",
+    "headline": "Chaos Zero Nightmare On Linux - Heroic Games Version",
     
     
     "inLanguage": "en",
@@ -211,7 +211,7 @@
     
     
     "mainEntityOfPage": "true",
-    "wordCount": "331"
+    "wordCount": "439"
   }]
   </script>
 
@@ -456,7 +456,7 @@
     <header id="single_header" class="mt-5 max-w-prose">
       
       <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
-        Chaos Zero Nightmare on Linux
+        Chaos Zero Nightmare On Linux - Heroic Games Version
       </h1>
       <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
         
@@ -508,7 +508,7 @@
   <div class="flex flex-row flex-wrap items-center">
     
     
-      <time datetime="2026-01-30T00:00:00&#43;00:00">30 January 2026</time><span class="px-2 text-primary-500">&middot;</span><span>331 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">2 mins</span>
+      <time datetime="2026-01-30T00:00:00&#43;00:00">30 January 2026</time><span class="px-2 text-primary-500">&middot;</span><span>439 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">3 mins</span>
     
 
     
@@ -589,6 +589,82 @@
     </div>
 
 
+<h1 class="relative group">IMPORTANT!!! Fix for the Stove not laucnhing after following normal guide
+    <div id="important-fix-for-the-stove-not-laucnhing-after-following-normal-guide" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#important-fix-for-the-stove-not-laucnhing-after-following-normal-guide" aria-label="Anchor">#</a>
+    </span>
+    
+</h1>
+<p>If <em>Stove</em> no longer launches from Heroic Games Launcher, it is probably becauce of  <strong><code>crashpad_handler.exe</code></strong></p>
+
+<h3 class="relative group">Steps
+    <div id="steps" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#steps" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<ol>
+<li><strong>Open your Wine prefix</strong>
+<ul>
+<li>In Heroic, go to <strong>Settings → Game Options → Wine Prefix</strong> and click <strong>Browse Wine Prefix</strong> .</li>
+</ul>
+</li>
+</ol>
+<figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    alt="Heroic Settings"
+    width="1048"
+    height="632"
+    src="/images/czn/image10_hu_9a165b7d0a301dcf.png"
+    srcset="/images/czn/image10_hu_9a165b7d0a301dcf.png 800w, /images/czn/image10.png 1280w"
+    sizes="(min-width: 768px) 50vw, 65vw"
+    data-zoom-src="/images/czn/image10.png"></figure>
+<ol start="2">
+<li>
+<p>Navigate to the following path inside the prefix:</p>
+<pre tabindex="0"><code>drive_c/ProgramData/Smilegate/LauncherService/App/
+</code></pre></li>
+</ol>
+<figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    alt="Heroic Settings"
+    width="1139"
+    height="686"
+    src="/images/czn/image7_hu_5efa406eaae3f627.png"
+    srcset="/images/czn/image7_hu_5efa406eaae3f627.png 800w, /images/czn/image7.png 1280w"
+    sizes="(min-width: 768px) 50vw, 65vw"
+    data-zoom-src="/images/czn/image7.png"></figure>
+<ol start="3">
+<li>
+<p>Locate <code>crashpad_handler.exe</code> and either Delete the file or move it to another folder that is not the one it is currently in.</p>
+</li>
+<li>
+<p>Now launch <em>Stove</em> again – it should start normally.</p>
+</li>
+</ol>
+
+<h1 class="relative group">Start of Normal Guide
+    <div id="start-of-normal-guide" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#start-of-normal-guide" aria-label="Anchor">#</a>
+    </span>
+    
+</h1>
+
 <h2 class="relative group">What you’ll need for this guide
     <div id="what-youll-need-for-this-guide" class="anchor"></div>
     
@@ -633,6 +709,16 @@
       </tr>
   </tbody>
 </table>
+
+<h2 class="relative group">Part 1 – Main Guide dont forget to do Part 2 after
+    <div id="part1--main-guide-dont-forget-to-do-part-2-after" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#part1--main-guide-dont-forget-to-do-part-2-after" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
 <blockquote>
 <p><em>Important:</em><br>
 Download the Evergreen Bootstrapper for Microsoft Edge WebView2 and save it to your <code>Downloads</code> folder
@@ -1037,12 +1123,12 @@ The installation‑freeze bug should no longer appear.</p>
               class="flex text-right text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
               href="/posts/aethergazeronlinix2026/">
               <span class="leading-6">
-                Aether Gazer on Linux – All Launcher Guides FAQ&ensp;<span class="inline-block rtl:rotate-180">&rarr;</span>
+                Aether Gazer on Linux – Older GPU Guide&ensp;<span class="inline-block rtl:rotate-180">&rarr;</span>
               </span>
             </a>
             
               <span class="me-6 mt-1 text-xs text-neutral-500 dark:text-neutral-400">
-                <time datetime="2026-02-22T00:00:00&#43;00:00">22 February 2026</time>
+                <time datetime="2026-03-01T00:00:00&#43;00:00">1 March 2026</time>
               </span>
             
           

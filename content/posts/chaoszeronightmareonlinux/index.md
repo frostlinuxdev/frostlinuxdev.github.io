@@ -1,11 +1,39 @@
 +++
-title = "Chaos Zero Nightmare on Linux"
+title = "Chaos Zero Nightmare On Linux - Heroic Games Version"
 date  = "2026-01-30"
 +++
 
 
 # Youtube Guide
 {{< youtube YBVMvz0JN8A>}}
+
+
+# IMPORTANT!!! Fix for the Stove not laucnhing after following normal guide
+
+If *Stove* no longer launches from Heroic Games Launcher, it is probably becauce of  **`crashpad_handler.exe`** 
+### Steps
+
+1. **Open your Wine prefix**  
+   * In Heroic, go to **Settings → Game Options → Wine Prefix** and click **Browse Wine Prefix** .
+
+![Heroic Settings](images/czn/image10.png)
+
+2. Navigate to the following path inside the prefix:
+
+   ```
+   drive_c/ProgramData/Smilegate/LauncherService/App/
+   ```
+
+![Heroic Settings](images/czn/image7.png)
+
+3. Locate `crashpad_handler.exe` and either Delete the file or move it to another folder that is not the one it is currently in.
+
+5. Now launch *Stove* again – it should start normally.
+
+
+
+# Start of Normal Guide
+
 ## What you’ll need for this guide
 
 | Item                        | Description                                           | Download link |
@@ -14,6 +42,9 @@ date  = "2026-01-30"
 | **Microsoft Edge WebView2** | Runtime required by Stove (provides the web‑view component). | [Get it from Microsoft here](https://developer.microsoft.com/en-us/microsoft-edge/webview2?form=MA13LH) |
 | **Heroic Games Launcher**   | Front‑end for installing and launching games on Linux. | [Install via Flathub](https://flathub.org/en/apps/com.heroicgameslauncher.hgl) |
 
+
+
+## Part 1 – Main Guide dont forget to do Part 2 after
 > *Important:*  
 > Download the Evergreen Bootstrapper for Microsoft Edge WebView2 and save it to your `Downloads` folder 
 ![Heroic Settings](images/czn/webview1.png)
