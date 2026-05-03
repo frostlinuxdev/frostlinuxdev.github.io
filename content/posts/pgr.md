@@ -3,6 +3,11 @@ title = "Punishing Gray Raven on Linux"
 date =  "2025-12-04"
 summary = "Punishing Gray Raven on Linux"
 tags = ["pgr" ,"gacha"]
+showTableOfContents = true
+featureimage = "/images/pgr/thumb.jpg"
+
+
+
 +++
 
 # Updated Guide for the Steam Release as of 02/02/2026
@@ -13,9 +18,9 @@ tags = ["pgr" ,"gacha"]
 
 # Still Usable but harder method (use Steam if you can)
 {{< youtube bBcmhq-0EZE >}}
-### We need to get bbe installed on our Linux Desktops System
+We need to get bbe installed on our Linux Desktops System
 
-### Steam Deck users would need another video/guide but my discord server does have a good guide and help section using the Universal Method.Will ipload that here soon.
+Steam Deck users would need another video/guide but my discord server does have a good guide and help section using the Universal Method.Will ipload that here soon.
 
 
 
@@ -29,6 +34,7 @@ To install the Binary Block Editor (**bbe**) on Ubuntu, run:
 sudo apt update
 sudo apt install bbe
 ```
+
 # Install bbe on Arch via yay
 Using an Arch based distro(Arch,CachyOS,EndevourOS, I know you know you're on Arch) 
 

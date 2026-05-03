@@ -1,8 +1,12 @@
 +++
 title = "Umamusume: Pretty Derby on Linux"
 date =  "2025-12-09"
+showTableOfContents = true
+featureimage = "/images/uma/thumb.jpg"
 +++
 
+
+{{< youtube _U5Pnpa8Xfg >}}
 
 ## 1. Install Steam for your distro then install Uma Musume and just try playing with default Steam Settings
 

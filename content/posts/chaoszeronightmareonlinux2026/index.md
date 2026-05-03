@@ -1,6 +1,9 @@
 +++
 title = "Chaos Zero Nightmare on Linux All Launcher Guides"
 date  = "2026-01-30"
+featureimage = "images/czn2/hero.jpg"
+showTableOfContents = true
+
 +++
 
 ### YouTube Guide (Heroic Games is having Issues after Season 2 update) – video will be replaced soon

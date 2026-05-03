@@ -1,0 +1,58 @@
++++
+title = "Nikke"
+date  = "2026-03-01"
+showTableOfContents = true
+featureimage = "/images/game46/thumb.jpg"
++++
+
+> **⚠️ IMPORTANT:** Open the Heroic Games once before continuing! This generates the folders we need to use.
+
+## Heroic Games 
+
+Will add part talking about Heroic install post recording.
+### Download the Wine Runner
+
+Press this link to download the wine runner we need here or from the releases link below.
+
+[Reccomended wine here](https://dawn.wine/NelloKudo/wine-miniloader/releases/download/wine-miniloader-tkg-11.0-1/wine-tkg-miniloader-staging-fonts-11.0-1-x86_64.tar.xz)
+
+
+Can download different builds/releases from [here](https://dawn.wine/NelloKudo/wine-miniloader/releases) but I will be recommending the one above mainly for compability with Heroic flatpak when it comes to video playback.
+
+
+
+### Extracting the Archive
+
+After downloading, extract the `tar.xz` file into the appropriate directory for your runner.
+
+| Runner | Flatpak location (default) | Native (Non‑Flatpak) location |
+| :--- | :--- | :--- |
+| **Heroic** | `$HOME/.var/app/com.heroicgameslauncher.hgl/config/heroic/tools/wine/` | `$HOME/.config/heroic/tools/wine/` |
+
+
+**One line command  if you downloaded the reccommended tar.xz to Downloads folder**
+
+
+
+**Flatpak version of Heroic:**
+```bash
+tar -xvf ~/Downloads/wine-tkg-miniloader-staging-fonts-11.0-1-x86_64.tar.xz -C $HOME/.var/app/com.heroicgameslauncher.hgl/config/heroic/tools/wine/
+```
+**Native version of Heroic:**
+```bash
+tar -xvf ~/Downloads/wine-tkg-miniloader-staging-fonts-11.0-1-x86_64.tar.xz -C $HOME/.config/heroic/tools/wine/
+```
+Alternative GUI Method: If you don't want to use the terminal, simply extract the file in your File Explorer and copy the resulting folder into whichever Heroic path (Flatpak or Native) applies to you.
+
+
+
+
+Next, download the latest .exe installer directly from the game's official website and save it to your Downloads folder and we can move onto Heroic Games Launcher
+
+<div style="display: flex; gap: 20px; margin-top: 30px;">
+  <a href="heroic/" style="flex: 1; text-align: center; padding: 20px; background-color: #3b82f6; color: white; text-decoration: none; border-radius: 8px; font-weight: bold; font-size: 1.2rem;">
+    Heroic Games  Guide
+  </a>
+</div>
+
+

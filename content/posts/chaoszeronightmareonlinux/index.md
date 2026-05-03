@@ -1,6 +1,8 @@
 +++
 title = "Chaos Zero Nightmare On Linux - Heroic Games Version"
 date  = "2026-01-30"
+featureimage = "/images/czn/hero.jpg"
+showTableOfContents = true
 +++
 
 

@@ -1,6 +1,8 @@
 +++
 title = "Wuthering Waves on Linux"
 date =  "2025-12-21"
+
+featureimage = "/images/wuwa/ythumb.png"
 +++
 
 

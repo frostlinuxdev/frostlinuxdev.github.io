@@ -1,0 +1,23 @@
++++
+title = "Mongil Star Dive on Linux"
+date  = "2026-04-15"
+showTableOfContents = true
+featureimage = "/images/nikke/thumb.jpg"
++++
+
+
+
+
+<div style="display: flex; gap: 20px; margin-top: 30px;">
+ <a href="./index/steam" style="flex: 1; text-align: center; padding: 20px; background-color: #190b9e; color: white; text-decoration: none; border-nadius: 8px; font-weight: bold; font-size: 1.2rem;">
+    Steam Guide
+  </a>
+</div>
+
+<div style="display: flex; gap: 20px; margin-top: 30px;">
+  <a href="./index/heroic" style="flex: 1; text-align: center; padding: 20px; background-color: #3b82f6; color: white; text-decoration: none; border-radius: 8px; font-weight: bold; font-size: 1.2rem;">
+    Heroic Games  Guide
+  </a>
+</div>
+
+

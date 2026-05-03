@@ -1,0 +1,27 @@
++++
+title = "That Game"
+date = "2026-03-01"
+description = "A step-by-step guide to installing the game on Linux using Heroic Games Launcher and a custom Wine miniloader."
+showTableOfContents = true
+unlisted = true
+featureimage = "/images/game46/thumb.jpg"
+
++++
+
+# Final Step
+
+Now the launcher shuld launch and you can install the game.
+
+Might take a few stop and stars to get it working.
+
+
+
+<div style="margin-top: 40px; display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap;">
+  <a href="../" style="padding: 12px 24px; background-color: #4b5563; color: white; text-decoration: none; border-radius: 6px; font-weight: bold; text-align: center; flex: 1; min-width: 200px;">
+    ⬅️ Back to Guide Menu
+  </a>
+  
+  <a href="../finalsteps/" style="padding: 12px 24px; background-color: #10b981; color: white; text-decoration: none; border-radius: 6px; font-weight: bold; text-align: center; flex: 1; min-width: 200px;">
+    Next: Configure the Game ➡️
+  </a>
+</div>

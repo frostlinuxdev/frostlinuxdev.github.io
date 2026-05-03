@@ -1,6 +1,8 @@
 +++
 title = "Aether Gazer on Linux – Older GPU Guide"
 date  = "2026-03-01"
+showTableOfContents = true
+featureimage = "/images/ag/thumb.jpg"
 +++
 
 

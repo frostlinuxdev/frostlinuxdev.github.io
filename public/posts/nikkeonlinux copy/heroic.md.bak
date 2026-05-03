@@ -1,0 +1,110 @@
++++
+title = "Nikke on Linux Heroic Games Launcher Method"
+date = "2026-03-01"
+description = "A step-by-step guide to installing the game on Linux using Heroic Games Launcher and a custom Wine miniloader."
+showTableOfContents = true
+unlisted = true
+featureimage = "/images/nikke/thumb.jpg"
+
++++
+
+# Heroic Games Installation Method
+
+## Step 1: Add a New Game
+Open your Heroic Games Launcher, navigate to your Library, and click the **ADD GAME** button at the top.
+
+![Heroic Library Add Game](/images/nikke/game46img1.png)
+*Figure 1: The Add Game button in the Heroic Library.*
+
+---
+
+## Step 2: Name the Game and Access Settings
+Give your game a title (I put "Nikke G" so the image would generate but Nikke is fine). Then, look further down the menu and click the **Show Wine settings** drop-down arrow to expand the advanced options.
+
+![Heroic Add Game Menu](/images/nikke/game46img2.png)
+*Figure 2: Naming the shortcut and opening Wine settings.*
+
+---
+
+## Step 3: Select the Custom Wine Version
+Under the expanded Wine settings, click the **Wine version** dropdown. Select your custom runner (in this case, `wine-tkg-miniloader-11.0`). This is crucial for getting the game to launch properly!
+
+![Heroic Wine Version Selection](/images/nikke/game46img3.png)
+*Figure 3: Selecting the miniloader Wine version.*
+
+---
+
+## Step 4: Run the Installer
+Instead of clicking Finish, scroll down and click the bright blue **RUN INSTALLER FIRST** button. This will tell Heroic to set up the environment and prepare to run the Windows setup file.
+
+![Heroic Run Installer Button](/images/nikke/game46img4.png)
+*Figure 4: Initiating the installer sequence.*
+
+---
+
+## Step 5: Select the Executable
+A file browser window will pop up. Navigate to your Downloads folder (or wherever you saved it) and select the official installer `.exe` file (e.g., `nikkeminiloader_...exe`). Click Select to begin the installation process!
+
+![Heroic Select EXE file](/images/nikke/game46img5.png)
+*Figure 5: Selecting the downloaded installer file.*
+
+---
+
+
+
+## Step 6: Begin the Game Installation
+After selecting the installer executable, the game's setup window will appear. Ensure the install location is set to the default `C:\NIKKE` (which Heroic maps to your Wine prefix) and click the large **INSTALL** button at the bottom.
+
+![NIKKE Install Screen](/images/nikke/game46img6.png)
+*Figure 6: Choosing the installation directory and starting the process.*
+
+---
+
+## Step 7: Wait for Download Completion
+The launcher will now download the necessary game files. Once the progress bar finishes and you see the **"Download complete!"** message, you are ready to move on. You can close this window so we can finish the Heroic configuration.
+
+![NIKKE Download Complete](/images/nikke/game46img7.png)
+*Figure 7: The launcher confirming all files have been successfully downloaded.*
+
+---
+## Step 7: Access the Select Executable Menu
+Now that the game is actually installed on your drive, go back to the Heroic "Add Game" menu for this title. Look for the **Select Executable** box at the bottom and click the **Folder Icon** on the right.
+
+![Select Executable location](/images/nikke/game46img8.png)
+*Figure 7: Opening the file browser to find the installed game file.*
+
+---
+
+## Step 8: Select the Installed Executable
+Now that the game is officially installed, we need to tell Heroic which file actually launches it. In the "Add Game" menu, look for the **Select Executable** field at the bottom and click the **Folder Icon**.
+
+![Opening the file browser](/images/nikke/game46img8.png)
+*Figure 8: Navigating to the installed game's launcher file.*
+
+---
+
+## Step 9: Point to nikke_launcher.exe
+A file browser will open inside your Wine prefix. Navigate through the folders (usually `drive_c` > `NIKKE` > `Launcher`) until you find **`nikke_launcher.exe`**. Highlight it and click the **Choose** button in the top right.
+
+![Selecting the .exe](/images/nikke/game46img9.png)
+*Figure 9: Selecting the correct executable to ensure the game boots properly.*
+
+---
+
+## Step 10: Finalize and Finish
+With the executable path now saved, ensure your **Wine version** is still set to the custom miniloader. Everything is now correctly configured! Click the green **FINISH** button in the bottom right corner to add the game to your library.
+
+![Clicking Finish](/images/nikke/game46img10.png)
+*Figure 10: Completing the setup process in Heroic.*
+
+---
+
+<div style="margin-top: 40px; display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap;">
+  <a href="../" style="padding: 12px 24px; background-color: #4b5563; color: white; text-decoration: none; border-radius: 6px; font-weight: bold; text-align: center; flex: 1; min-width: 200px;">
+    ⬅️ Back to Guide Menu
+  </a>
+  
+  <a href="../finalsteps/" style="padding: 12px 24px; background-color: #10b981; color: white; text-decoration: none; border-radius: 6px; font-weight: bold; text-align: center; flex: 1; min-width: 200px;">
+    Next: Configure the Game ➡️
+  </a>
+</div>
