@@ -5,7 +5,7 @@ description = "A step-by-step guide to installing the game on Linux using Heroic
 
 
 +++
-{{< youtube YDDvOaT7-00 >}}
+{{< youtube NOErdc0z1qU >}}
 # Heroic Games Installation Method
 
 ## Step 1: Add a New Game

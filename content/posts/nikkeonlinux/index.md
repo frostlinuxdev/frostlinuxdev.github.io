@@ -5,7 +5,7 @@ showTableOfContents = true
 featureimage = "/images/nikke/thumb.jpg"
 +++
 
-{{< youtube YDDvOaT7-00 >}}
+{{< youtube NOErdc0z1qU >}}
 
 ## ProtonPlus
 > **Already Installed?**  
