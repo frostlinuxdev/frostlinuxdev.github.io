@@ -10,14 +10,14 @@ featureimage = "/images/wuwa/ythumb.png"
 
 ### 1. Steam
 ### 2. Wuthering Waves
-### 3. ProtonPlus (if you are not on ProtonCachyOS)
+### 3. ProtonPlus to Download DW-Proton
 
 
 {{< youtube cpaaq3gSFGA>}}
 
 Image source: https://t.bilibili.com/1027498671347859464
 
-Skip the ProtonPlus section if you already have Proton-GE or ProtonCachyOS installed on steam.
+
 
 ### ProtonPlus
 Install ProtonPlus from Flathub:  
@@ -25,17 +25,24 @@ https://flathub.org/en/apps/com.vysp3r.ProtonPlus
 Or search for **ProtonPlus** in your software/app manager.
 
 
-
-
 ### Open ProtonPlus
 
 
-![Alt text](images/uma/protonplus.png )Download the latest Proton CachyOS (make sure you are isntalling to Steam shown by the icon in top right)
+![Alt text](images/wuwa/wuwa1.png )Download the latest DW -Proton (make sure you are installing to Steam shown by the icon in top right)
 
-### Set Wuwa to use Proton-CachyOS in Compatbility in ProtonPlus
-![Alt text](images/uma/protonplus2.png)
+### Set Wuwa to use DW-Proton in Compatbility in ProtonPlus
+![Alt text](images/wuwa/wuwa5.png )
 
-Game will be playable will add more section about login shortly and remove placeholder images.The video will fill in any gaps for now.Should be done within a day of video uploaded.
+Then you can play
+
+### Or change it in Steam if you want
+### Set Wuwa to use DW-Proton in Compatbility in Steam
+!![Alt text](images/wuwa/wuwa2.png )
+!![Alt text](images/wuwa/wuwa3.png )
+
+Then play can play
+
+As for login. Best to just link your steam account to whatever login service you used before.
 ## Enjoy the game
 
 
