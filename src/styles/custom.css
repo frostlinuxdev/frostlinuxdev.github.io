@@ -1,0 +1,98 @@
+/* YouTube embeds: proper 16:9 instead of a fixed height. */
+.sl-markdown-content iframe[src*='youtube.com/embed'] {
+	display: block;
+	width: 100%;
+	height: auto;
+	aspect-ratio: 16 / 9;
+	border: 0;
+	border-radius: 0.5rem;
+	margin-block: 1rem;
+}
+
+/* Gameplay clips at the bottom of guides: small, side by side. */
+.sl-markdown-content .gameplay-grid {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1rem;
+	margin-block: 1rem;
+}
+.sl-markdown-content .gameplay-grid figure {
+	margin: 0;
+	flex: 0 1 320px;
+}
+.sl-markdown-content .gameplay-grid iframe {
+	margin: 0;
+}
+.sl-markdown-content .gameplay-grid figcaption {
+	font-size: var(--sl-text-xs);
+	color: var(--sl-color-gray-3);
+	margin-top: 0.25rem;
+}
+
+/* Official screenshots: side-by-side image gallery. */
+.sl-markdown-content .shot-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+	gap: 0.75rem;
+	margin-block: 1rem;
+}
+.sl-markdown-content .shot-grid img {
+	width: 100%;
+	height: auto;
+	aspect-ratio: 16 / 9;
+	object-fit: cover;
+	border-radius: 0.5rem;
+	border: 1px solid var(--sl-color-gray-5);
+}
+.sl-markdown-content .store-shot {
+	display: inline-block;
+	max-width: 420px;
+	margin-block: 0.5rem;
+}
+.sl-markdown-content .store-shot img {
+	width: 100%;
+	height: auto;
+	border-radius: 0.5rem;
+	border: 1px solid var(--sl-color-gray-5);
+}
+
+/* Blue theme */
+:root {
+	--sl-color-accent-low: #0c2a55;
+	--sl-color-accent: #2f7bf0;
+	--sl-color-accent-high: #9cc4ff;
+	--sl-color-white: #f4f8ff;
+	--sl-color-gray-1: #dbe6f7;
+	--sl-color-gray-2: #b2c3de;
+	--sl-color-gray-3: #7f93b5;
+	--sl-color-gray-4: #4a5d82;
+	--sl-color-gray-5: #2c3b5c;
+	--sl-color-gray-6: #1a2744;
+	--sl-color-gray-7: #121c33;
+	--sl-color-black: #0a1122;
+}
+:root[data-theme='light'] {
+	--sl-color-accent-low: #cfe2ff;
+	--sl-color-accent: #1f66d9;
+	--sl-color-accent-high: #0b3f94;
+	--sl-color-white: #0a1122;
+	--sl-color-gray-1: #1a2744;
+	--sl-color-gray-2: #2c3b5c;
+	--sl-color-gray-3: #4a5d82;
+	--sl-color-gray-4: #7f93b5;
+	--sl-color-gray-5: #c3d2ea;
+	--sl-color-gray-6: #e6eefb;
+	--sl-color-gray-7: #f1f6fe;
+	--sl-color-black: #ffffff;
+}
+
+/* Top nav lives in the header; the sidebar is reserved for the guide list.
+   On narrow viewports the header grows to two rows: title + search, then the nav. */
+@media (max-width: 49.999em) {
+	:root {
+		--sl-nav-height: 6rem;
+	}
+	.sl-menu-button {
+		top: var(--sl-nav-pad-y) !important;
+	}
+}

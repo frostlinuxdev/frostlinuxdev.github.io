@@ -1,0 +1,28 @@
+---
+import { NADARE_URL } from '../site.config.mjs';
+---
+<p class="cta">
+	<a href={NADARE_URL} target="_blank" rel="noopener">Download Nadare 0.1.0b1</a>
+	<span class="beta">Beta</span>
+</p>
+
+<style>
+	.cta { display: flex; align-items: center; gap: 0.75rem; margin-block: 1.25rem; }
+	.cta a {
+		padding: 0.6rem 1.1rem;
+		border-radius: 0.4rem;
+		background: var(--sl-color-accent);
+		color: var(--sl-color-black);
+		font-weight: 600;
+		text-decoration: none;
+	}
+	.beta {
+		font-size: var(--sl-text-xs);
+		padding: 0.15rem 0.5rem;
+		border: 1px solid var(--sl-color-accent);
+		border-radius: 999px;
+		color: var(--sl-color-accent-high);
+		text-transform: uppercase;
+		letter-spacing: 0.04em;
+	}
+</style>

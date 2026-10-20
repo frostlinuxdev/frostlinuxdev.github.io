@@ -1,0 +1,98 @@
+---
+import config from 'virtual:starlight/user-config';
+
+const route = Astro.locals.starlightRoute;
+const { head, entry, id } = route;
+const data = (entry?.data ?? {}) as Record<string, any>;
+
+const site = Astro.site ?? new URL('https://frostlinuxdev.github.io');
+const path = Astro.url.pathname.replace(/\/+$/, '') || '/';
+const pageUrl = new URL(Astro.url.pathname, site).href;
+
+const has = (key: string, value: string) => head.some((h) => (h.attrs as Record<string, any>)?.[key] === value);
+
+const isHome = path === '/' || id === 'index';
+const isGuide = path.startsWith('/guides/');
+
+const title = data.title ?? config.title ?? 'FrostLinux';
+const description = data.description ?? config.description ?? '';
+const game = data.game;
+
+// Drop the " | FrostLinux" suffix when it would push the <title> past ~60 chars.
+const titleTag = head.find((h) => h.tag === 'title');
+const renderedTitle = typeof titleTag?.content === 'string' ? titleTag.content : title;
+const seoTitle = renderedTitle.length > 60 ? title : renderedTitle;
+const headTags = head.filter((h) => h.tag !== 'title');
+
+// Prefer the guide's own card art, then its hero, then the branded default.
+const imagePath = data.image ?? data.heroImage ?? '/images/og-default.png';
+const ogImage = new URL(imagePath, site).href;
+
+const publisher = { '@type': 'Organization', name: 'FrostLinux', url: site.href };
+
+const isNews = path.startsWith('/news/') && path !== '/news';
+const crumbs: { name: string; url: string }[] = [{ name: 'Home', url: site.href }];
+if (isGuide) {
+	crumbs.push({ name: 'Compatibility list', url: new URL('/games/', site).href });
+	const parts = path.split('/').filter(Boolean); // guides, game[, sub]
+	if (parts.length > 2) crumbs.push({ name: game ?? parts[1].replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase()), url: new URL(`/guides/${parts[1]}/`, site).href });
+	crumbs.push({ name: parts.length > 2 ? title : (game ?? title), url: pageUrl });
+} else if (isNews) {
+	crumbs.push({ name: 'News', url: new URL('/news/', site).href }, { name: title, url: pageUrl });
+}
+const breadcrumbLd =
+	crumbs.length > 1
+		? {
+				'@context': 'https://schema.org',
+				'@type': 'BreadcrumbList',
+				itemListElement: crumbs.map((c, i) => ({ '@type': 'ListItem', position: i + 1, name: c.name, item: c.url })),
+			}
+		: undefined;
+
+const jsonLd = isHome
+	? {
+			'@context': 'https://schema.org',
+			'@type': 'WebSite',
+			name: 'FrostLinux',
+			url: site.href,
+			description,
+			publisher,
+		}
+	: isGuide
+		? {
+				'@context': 'https://schema.org',
+				'@type': 'Article',
+				headline: title,
+				description,
+				image: ogImage,
+				author: publisher,
+				publisher,
+				mainEntityOfPage: { '@type': 'WebPage', '@id': pageUrl },
+				...(game ? { about: { '@type': 'VideoGame', name: game } } : {}),
+			}
+		: {
+				'@context': 'https://schema.org',
+				'@type': 'WebPage',
+				name: title,
+				description,
+				url: pageUrl,
+			};
+---
+
+{headTags.map(({ tag: Tag, attrs, content }) => <Tag {...attrs} set:html={content} />)}
+<title>{seoTitle}</title>
+{
+	!has('property', 'og:image') && <meta property="og:image" content={ogImage} />
+}
+{
+	!has('property', 'og:image:alt') && (
+		<meta property="og:image:alt" content={game ? `${game} on Linux` : title} />
+	)
+}
+{!has('property', 'og:site_name') && <meta property="og:site_name" content="FrostLinux" />}
+{!has('name', 'twitter:card') && <meta name="twitter:card" content="summary_large_image" />}
+{!has('name', 'twitter:image') && <meta name="twitter:image" content={ogImage} />}
+<script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+{data.noindex && <meta name="robots" content="noindex, follow" />}
+{breadcrumbLd && <script type="application/ld+json" set:html={JSON.stringify(breadcrumbLd)} />}
+{!has('type', 'application/rss+xml') && <link rel="alternate" type="application/rss+xml" title="FrostLinux news" href="/news/rss.xml" />}

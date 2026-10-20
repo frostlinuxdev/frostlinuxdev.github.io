@@ -1,0 +1,46 @@
+---
+title: Linux Gaming Guides for Gacha Games
+description: "Step-by-step Linux gaming guides for gacha games: Proton, Heroic, Steam and launcher setups for Genshin, Zenless Zone Zero, Wuthering Waves, NIKKE and more."
+template: splash
+hero:
+  title: Gacha games, on Linux.
+  tagline: Step-by-step Proton, Heroic and Steam setups for Genshin, Zenless Zone Zero, Wuthering Waves, NIKKE, Arknights and more. Most guides come with a video walkthrough.
+  image:
+    file: ../../assets/hero-collage.png
+    alt: Collage of gacha games running on Linux
+  actions:
+    - text: Browse all games
+      link: /games/
+      icon: right-arrow
+      variant: primary
+    - text: Watch on YouTube
+      link: https://www.youtube.com/@FrostLinux
+      icon: external
+      variant: minimal
+---
+
+import { Card, CardGrid } from '@astrojs/starlight/components';
+import HomeGames from '../../components/HomeGames.astro';
+
+## Confirmed working
+
+<HomeGames />
+
+[See the full compatibility list →](/games/)
+
+## How the guides work
+
+<CardGrid>
+	<Card title="Pick your game" icon="open-book">
+		Find your game in the compatibility list. Each card shows the launcher and whether it is on Steam.
+	</Card>
+	<Card title="Follow the steps" icon="list-format">
+		Screenshots, copy-paste commands and the exact Proton version to use.
+	</Card>
+	<Card title="Watch it run" icon="youtube">
+		Most guides have a video walkthrough, and many show gameplay running on Linux.
+	</Card>
+	<Card title="Stuck?" icon="information">
+		Each guide has a troubleshooting section for the problems people actually hit.
+	</Card>
+</CardGrid>

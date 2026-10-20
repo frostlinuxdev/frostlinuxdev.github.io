@@ -1,0 +1,54 @@
+---
+import { getCollection } from 'astro:content';
+const all = await getCollection('docs', ({ id, data }) => id.startsWith('guides/') && (import.meta.env.DEV || !data.draft));
+const games = all.filter((e) => e.data.game);
+const working = games.filter((e) => e.data.status === 'works').sort((a, b) => a.data.game!.localeCompare(b.data.game!));
+const total = games.length;
+const onSteam = games.filter((e) => e.data.onSteam).length;
+---
+<div class="stats">
+	<div><strong>{working.length}</strong><span>confirmed working</span></div>
+	<div><strong>{total}</strong><span>games tracked</span></div>
+	<div><strong>{onSteam}</strong><span>on Steam</span></div>
+</div>
+
+<ul class="grid">
+	{working.slice(0, 12).map((e) => (
+		<li>
+			<a href={`/${e.id.replace(/\/index$/, '')}/`}>
+				{e.data.image ? <img src={e.data.image} alt={`${e.data.game} on Linux`} loading="lazy" width="320" height="320" /> : <div class="ph">{e.data.game}</div>}
+				<span>{e.data.game}</span>
+			</a>
+		</li>
+	))}
+</ul>
+
+<style>
+	.stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem; margin: 1.5rem 0; }
+	.stats div {
+		margin: 0 !important;
+		padding: 1rem 0.5rem;
+		border: 1px solid var(--sl-color-gray-5);
+		border-radius: 0.6rem;
+		background: var(--sl-color-bg-nav);
+		text-align: center;
+	}
+	.stats strong { display: block; font-size: var(--sl-text-3xl); color: var(--sl-color-accent-high); line-height: 1.1; }
+	.stats span { color: var(--sl-color-gray-3); font-size: var(--sl-text-sm); }
+	.grid { list-style: none; padding: 0; margin: 1rem 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 0.9rem; }
+	.grid li { margin: 0; padding: 0; }
+	.grid a {
+		display: block;
+		border: 1px solid var(--sl-color-gray-5);
+		border-radius: 0.6rem;
+		overflow: hidden;
+		text-decoration: none;
+		color: var(--sl-color-white);
+		background: var(--sl-color-bg-nav);
+		transition: transform 0.15s, border-color 0.15s;
+	}
+	.grid a:hover { transform: translateY(-2px); border-color: var(--sl-color-accent); }
+	img, .ph { display: block; width: 100%; aspect-ratio: 1 / 1; object-fit: cover; object-position: center top; margin: 0; background: var(--sl-color-gray-6); }
+	.ph { display: grid; place-items: center; padding: 0.5rem; text-align: center; color: var(--sl-color-gray-3); }
+	.grid span { display: block; padding: 0.5rem 0.6rem; font-size: var(--sl-text-sm); font-weight: 600; }
+</style>

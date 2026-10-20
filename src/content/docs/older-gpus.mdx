@@ -1,0 +1,53 @@
+---
+title: "Older GPUs: Vulkan 1.2 and DXVK-Sarek"
+description: "Older GPUs with only Vulkan 1.2 (or 1.1) can still run modern games using a Proton build that bundles DXVK-Sarek. Which builds to use, and why."
+tableOfContents: true
+---
+
+Some older GPUs only support **Vulkan 1.2** (or even 1.1), while current **DXVK** needs Vulkan 1.3 features such as descriptor indexing. On those cards a normal Proton will fail to start the game or crash with a D3D11/Vulkan error.
+
+The fix is not a pile of launch commands or wrapper scripts. It is simply picking a **Proton build that includes DXVK-Sarek** — that is the whole trick.
+
+## What is DXVK-Sarek?
+
+[DXVK-Sarek](https://github.com/pythonlover02/dxvk-sarek) is a fork of DXVK that keeps the modern performance and per-game fixes but targets GPUs that do not meet upstream DXVK's Vulkan requirements. It supports **Vulkan 1.1 and 1.2** hardware.
+
+## Proton builds that include it
+
+| Proton build | Notes |
+| ------------ | ----- |
+| **Proton-CachyOS** | Bundles DXVK-Sarek and **automatically falls back** to it when the GPU does not support the required Vulkan features. You can also force it with `PROTON_DXVK_SAREK=1`. |
+| **DW-Proton (Dawn Winery)** | Bundles DXVK-Sarek as well. |
+
+Install either one with **ProtonPlus** (Flatpak), then select it for the game in Steam or Heroic.
+
+> **Not Proton Experimental.** Valve's Proton — including the experimental/bleeding-edge branches — ships upstream DXVK and does **not** include DXVK-Sarek, so it will not help on Vulkan 1.2-only hardware.
+
+## How to set it up
+
+1. Install **ProtonPlus**.
+2. Download the latest **Proton-CachyOS** (or DW-Proton).
+3. Point the game at it:
+   - **Steam:** game → Properties → Compatibility → force the build.
+   - **Heroic:** Settings → Wine version.
+4. Launch. Proton-CachyOS detects your GPU and uses DXVK-Sarek automatically. Only add `PROTON_DXVK_SAREK=1` to the launch options if you need to force it.
+
+That is it — no extra commands for a normal single-player game.
+
+## Which GPUs benefit?
+
+Anything stuck on Vulkan 1.1 or 1.2, for example:
+
+- Older **Intel** integrated graphics (such as HD 5500 / Broadwell).
+- Older **AMD** and **NVIDIA** cards still on legacy drivers, such as `nvidia-470`.
+
+CachyOS still ships some of the older drivers DXVK-Sarek targets, so Proton-CachyOS is usually the easiest option on those systems.
+
+## Caveats
+
+- DXVK-Sarek uses **asynchronous (dyasync) shader compilation** by default. This can cause brief visual inaccuracies while shaders build in the background.
+- **Do not use the async mode in games with anti-cheat or competitive multiplayer.** Manipulating shader compilation this way can theoretically be picked up by client-side anti-cheat. For those games, use a normal Proton, or DW-Proton's `PROTON_DXVK_LOWLATENCY=1`, which is safe.
+
+## Checking a game first
+
+If you want to know whether a specific game works before you start, [ProtonDB](https://www.protondb.com/) has user reports per game. Just remember that the reports there often involve long lists of launch commands — on this site the answer is almost always only "use the right Proton version."

@@ -1,0 +1,42 @@
+---
+title: "Nadare: One-Click Gacha Game Launcher for Linux (Beta)"
+description: Nadare is a launcher that installs supported gacha games on Linux in one click. Download the 0.1.0 beta AppImage.
+tableOfContents: false
+---
+
+import NadareGames from '../../components/NadareGames.astro';
+import { NADARE_REPO_URL } from '../../site.config.mjs';
+
+**Nadare** is a launcher that installs and configures supported games on Linux in a single click, so you do not have to follow a manual guide step by step. It is currently in **beta**.
+
+Pick the game, press install, play. For anything it does not cover yet, the written guides on this site still apply, and every supported game keeps its manual guide as a fallback.
+
+<NadareGames />
+
+<div class="shot-grid">
+  <img src="/images/nadare/library.webp" alt="Nadare library showing Chaos Zero Nightmare, Arknights and Stella Sora" loading="lazy" />
+  <img src="/images/nadare/game.webp" alt="Nadare game page with the one-click action button and the game's news feed" loading="lazy" />
+</div>
+
+## Get started
+
+1. Download `Nadare-0.1.0b1-x86_64.AppImage` from the release page.
+2. Make it executable (`chmod +x Nadare-0.1.0b1-x86_64.AppImage`) or tick "Allow executing as program" in your file manager.
+3. Double-click it. Nadare downloads what it needs (Proton, WebView2 and so on) on first use.
+
+A `.sha256` file sits next to the download if you want to verify it.
+
+## Supported games
+
+- **Chaos Zero Nightmare**: install, update, QR login and launch. Tested on NVIDIA and AMD.
+- **Arknights** (EN): install, update and launch through Proton.
+- **Stella Sora** (EN): install, update and launch through Proton. It is also on Steam, which we recommend over Nadare; see the [guide](/guides/stella-sora/).
+
+Fate/Grand Order is in the code but does not install in this beta; it is planned for 0.1.0b2.
+
+## Beta notes
+
+- Only some games are supported, and the list grows over time.
+- Things may break or change between releases.
+- If something fails, use the manual guide for that game and report it on [GitHub issues](https://github.com/frostlinuxdev/nadare/issues).
+- Source and full docs: [{NADARE_REPO_URL.replace('https://', '')}]({NADARE_REPO_URL}).

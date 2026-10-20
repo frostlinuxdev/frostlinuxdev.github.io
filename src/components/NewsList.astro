@@ -1,0 +1,112 @@
+---
+import { getCollection } from 'astro:content';
+
+const posts = (
+	await getCollection(
+		'docs',
+		({ id, data }) => id.startsWith('news/') && !id.endsWith('/index') && (import.meta.env.DEV || !data.draft),
+	)
+).sort((a, b) => (b.data.date?.valueOf() ?? 0) - (a.data.date?.valueOf() ?? 0));
+
+const fmt = new Intl.DateTimeFormat('en', { year: 'numeric', month: 'short', day: 'numeric' });
+---
+
+{posts.length === 0 && <p>No news yet.</p>}
+
+<ul class="news">
+	{posts.map((p) => (
+		<li>
+			<a href={`/${p.id.replace(/\/index$/, '')}/`}>
+				{p.data.image ? (
+					<img class="thumb" src={p.data.image} alt="" loading="lazy" width="160" height="90" />
+				) : (
+					<div class="thumb ph" aria-hidden="true">📰</div>
+				)}
+				<span class="text">
+					<span class="head">
+						<strong>{p.data.title}</strong>
+						{p.data.date && <time datetime={p.data.date.toISOString()}>{fmt.format(p.data.date)}</time>}
+					</span>
+					{p.data.description && <span class="desc">{p.data.description}</span>}
+				</span>
+			</a>
+		</li>
+	))}
+</ul>
+
+<style>
+	.news {
+		list-style: none;
+		padding: 0;
+		margin: 1.5rem 0;
+		display: flex;
+		flex-direction: column;
+		gap: 0.8rem;
+	}
+	.news li {
+		margin: 0;
+		padding: 0;
+	}
+	.news a {
+		display: flex;
+		gap: 1rem;
+		align-items: center;
+		border: 1px solid var(--sl-color-gray-5);
+		border-radius: 0.6rem;
+		background: var(--sl-color-bg-nav);
+		padding: 0.75rem;
+		text-decoration: none;
+		color: var(--sl-color-white);
+		transition: transform 0.15s, border-color 0.15s;
+	}
+	.news a:hover {
+		transform: translateY(-2px);
+		border-color: var(--sl-color-accent);
+	}
+	.news .thumb {
+		flex: 0 0 auto;
+		width: 160px;
+		height: 90px;
+		object-fit: cover;
+		border-radius: 0.4rem;
+		background: var(--sl-color-gray-6);
+	}
+	.news .ph {
+		display: grid;
+		place-items: center;
+		font-size: 1.75rem;
+	}
+	.news .text {
+		display: flex;
+		flex-direction: column;
+		min-width: 0;
+	}
+	.news .head {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: baseline;
+		justify-content: space-between;
+		gap: 0.5rem;
+	}
+	.news strong {
+		font-size: var(--sl-text-lg);
+		color: var(--sl-color-white);
+	}
+	.news time {
+		color: var(--sl-color-gray-3);
+		font-size: var(--sl-text-sm);
+		white-space: nowrap;
+	}
+	.news .desc {
+		display: block;
+		margin-top: 0.3rem;
+		color: var(--sl-color-gray-2);
+		font-size: var(--sl-text-sm);
+	}
+	@media (max-width: 30rem) {
+		.news .thumb {
+			width: 96px;
+			height: 96px;
+		}
+	}
+</style>

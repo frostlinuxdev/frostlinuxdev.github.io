@@ -1,0 +1,168 @@
+---
+import config from 'virtual:starlight/user-config';
+
+import LanguageSelect from 'virtual:starlight/components/LanguageSelect';
+import Search from 'virtual:starlight/components/Search';
+import SiteTitle from 'virtual:starlight/components/SiteTitle';
+import SocialIcons from 'virtual:starlight/components/SocialIcons';
+import ThemeSelect from 'virtual:starlight/components/ThemeSelect';
+
+/**
+ * Render the `Search` component if Pagefind is enabled or the default search component has been overridden.
+ */
+const shouldRenderSearch =
+	config.pagefind || config.components.Search !== '@astrojs/starlight/components/Search.astro';
+
+// Top-level pages live in the header; the sidebar is reserved for the guide list.
+const nav = [
+	{ label: 'News', href: '/news/' },
+	{ label: 'Compatibility list', short: 'Games', href: '/games/' },
+	{ label: 'Older GPUs', href: '/older-gpus/' },
+	{ label: 'Gameplay', href: '/gameplay/' },
+	{ label: 'Nadare', href: '/nadare/' },
+];
+
+const current = Astro.url.pathname.replace(/\/+$/, '') || '/';
+const isActive = (href: string) => {
+	const base = href.replace(/\/+$/, '');
+	return current === base || current.startsWith(base + '/');
+};
+---
+
+<div class="header">
+	<div class="title-wrapper sl-flex">
+		<SiteTitle />
+	</div>
+	<nav class="top-nav print:hidden" aria-label="Main">
+		{
+			nav.map(({ label, short, href }) => (
+				<a href={href} class:list={[{ active: isActive(href) }]} aria-current={isActive(href) ? 'page' : undefined}>
+					{short ? <><span class="long">{label}</span><span class="short">{short}</span></> : label}
+				</a>
+			))
+		}
+	</nav>
+	<div class="sl-flex print:hidden">
+		{shouldRenderSearch && <Search />}
+	</div>
+	<div class="sl-hidden md:sl-flex print:hidden right-group">
+		<div class="sl-flex social-icons">
+			<SocialIcons />
+		</div>
+		<ThemeSelect />
+		<LanguageSelect />
+	</div>
+</div>
+
+<style>
+	@layer starlight.core {
+		.header {
+			display: flex;
+			gap: var(--sl-nav-gap);
+			justify-content: space-between;
+			align-items: center;
+			height: 100%;
+		}
+
+		.title-wrapper {
+			overflow: clip;
+			padding: 0.25rem;
+			margin: -0.25rem;
+			min-width: 0;
+		}
+
+		.top-nav {
+			display: flex;
+			align-items: center;
+			gap: 1.1rem;
+			min-width: 0;
+			font-size: var(--sl-text-sm);
+			white-space: nowrap;
+		}
+
+		.top-nav a {
+			color: var(--sl-color-gray-2);
+			text-decoration: none;
+			padding-block: 0.25rem;
+			border-bottom: 2px solid transparent;
+		}
+
+		.top-nav a:hover {
+			color: var(--sl-color-white);
+		}
+
+		.top-nav a.active {
+			color: var(--sl-color-white);
+			border-bottom-color: var(--sl-color-accent);
+		}
+
+		.right-group,
+		.social-icons {
+			gap: 1rem;
+			align-items: center;
+		}
+		.social-icons::after {
+			content: '';
+			height: 2rem;
+			border-inline-end: 1px solid var(--sl-color-gray-5);
+		}
+
+		.top-nav .short {
+			display: none;
+		}
+
+		/* Two-row header on narrow viewports: title + search on top, nav underneath. */
+		@media (max-width: 49.999em) {
+			.header {
+				flex-wrap: wrap;
+				align-content: center;
+				row-gap: 0.35rem;
+			}
+			.title-wrapper {
+				flex: 1 1 auto;
+			}
+			.top-nav {
+				order: 3;
+				flex: 1 1 100%;
+				gap: 0.15rem 0.9rem;
+				flex-wrap: wrap;
+				padding-bottom: 0.15rem;
+			}
+			.top-nav .long {
+				display: none;
+			}
+			.top-nav .short {
+				display: inline;
+			}
+		}
+
+		@media (min-width: 50rem) {
+			:global(:root[data-has-sidebar]) {
+				--__sidebar-pad: calc(2 * var(--sl-nav-pad-x));
+			}
+			:global(:root:not([data-has-toc])) {
+				--__toc-width: 0rem;
+			}
+			.header {
+				--__sidebar-width: max(0rem, var(--sl-content-inline-start, 0rem) - var(--sl-nav-pad-x));
+				--__main-column-fr: calc(
+					(
+							100% + var(--__sidebar-pad, 0rem) - var(--__toc-width, var(--sl-sidebar-width)) -
+								(2 * var(--__toc-width, var(--sl-nav-pad-x))) - var(--sl-content-inline-start, 0rem) -
+								var(--sl-content-width)
+						) / 2
+				);
+				display: grid;
+				grid-template-columns:
+					minmax(
+						calc(var(--__sidebar-width) + max(0rem, var(--__main-column-fr) - var(--sl-nav-gap))),
+						auto
+					)
+					auto
+					1fr
+					auto;
+				align-content: center;
+			}
+		}
+	}
+</style>

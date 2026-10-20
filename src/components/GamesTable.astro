@@ -1,0 +1,521 @@
+---
+import { getCollection } from 'astro:content';
+
+const all = await getCollection(
+	'docs',
+	({ id, data }) => id.startsWith('guides/') && (import.meta.env.DEV || !data.draft),
+);
+const rows = all
+	.filter((e) => e.data.game)
+	.sort((a, b) => a.data.game!.localeCompare(b.data.game!));
+
+const videoUrl = (e: (typeof rows)[number]): string | undefined => {
+	const id = e.data.gameplay?.[0]?.id ?? e.body?.match(/youtube\.com\/embed\/([\w-]{11})/)?.[1];
+	return id ? `https://www.youtube.com/watch?v=${id}` : undefined;
+};
+
+const launcher: Record<string, string> = {
+	steam: 'Steam',
+	heroic: 'Proton launcher',
+	faugus: 'Proton launcher',
+	lutris: 'Proton launcher',
+	twintail: 'TwintailLauncher',
+	'heroic-or-faugus': 'Proton launcher',
+};
+const statusLabel: Record<string, string> = {
+	works: 'Works',
+	'drafted-from-video': 'Draft (untested by me)',
+	untested: 'Untested by me',
+	'needs-fix': 'Needs fix',
+	broken: 'Broken',
+};
+const ratingLabel: Record<string, string> = {
+	'out-of-the-box': 'Out of the box',
+	'custom-proton': 'Custom Proton',
+};
+const ratingOf = (d: (typeof rows)[number]['data']): keyof typeof ratingLabel | undefined => {
+	if (d.rating) return d.rating;
+	if (d.status === 'untested') return undefined;
+	const v = (d.protonVersion ?? '').toLowerCase();
+	if (/dw-proton|proton-ge|proton-sarek|ge-proton|cachyos/.test(v)) return 'custom-proton';
+	if (/proton \(default\)/.test(v)) return 'out-of-the-box';
+	if (['heroic', 'faugus', 'lutris', 'heroic-or-faugus'].includes(d.launcher ?? ''))
+		return 'custom-proton';
+	if (d.launcher === 'steam' || d.onSteam) return 'out-of-the-box';
+	return undefined;
+};
+
+const working = rows.filter((e) => e.data.status === 'works').length;
+const onSteam = rows.filter((e) => e.data.onSteam || e.data.steamComingSoon).length;
+const launcherOf = (d: (typeof rows)[number]['data']) =>
+	d.launcherName ?? (d.launcher ? launcher[d.launcher] : undefined) ?? undefined;
+const isSteam = (d: (typeof rows)[number]['data']) => Boolean(d.onSteam || d.steamComingSoon);
+const isWorks = (d: (typeof rows)[number]['data']) => d.status === 'works';
+const protondbWorks = (d: (typeof rows)[number]['data']) =>
+	d.status === 'untested' && ['platinum', 'gold', 'silver'].includes(d.protondbTier ?? '');
+---
+
+<div class="stats">
+	<div><strong>{rows.length}</strong><span>games tracked</span></div>
+	<div><strong>{working}</strong><span>confirmed working</span></div>
+	<div><strong>{onSteam}</strong><span>on Steam</span></div>
+</div>
+
+<div class="toolbar">
+	<label class="field search">
+		<span class="sr">Search</span>
+		<input type="search" placeholder="Search games…" autocomplete="off" />
+	</label>
+
+	<div class="group" role="group" aria-label="Status" data-group="status">
+		<button type="button" data-status="all" aria-pressed="true">All</button>
+		<button type="button" data-status="works">Working</button>
+		<button type="button" data-status="todo">To do</button>
+	</div>
+
+	<div class="group" role="group" aria-label="Store" data-group="steam">
+		<button type="button" data-steam="all" aria-pressed="true">Any store</button>
+		<button type="button" data-steam="yes">Steam</button>
+		<button type="button" data-steam="no">No Steam</button>
+	</div>
+
+	<div class="group" role="group" aria-label="View" data-group="view">
+		<button type="button" data-view="grid" aria-pressed="true">Grid</button>
+		<button type="button" data-view="table">Table</button>
+	</div>
+
+	<div class="group sizes" role="group" aria-label="Card size" data-group="size">
+		<button type="button" data-size="s">S</button>
+		<button type="button" data-size="m" aria-pressed="true">M</button>
+		<button type="button" data-size="l">L</button>
+	</div>
+</div>
+
+<p class="empty" hidden>No games match your filters.</p>
+
+<ul class="games" data-size="m">
+	{rows.map((e) => {
+		const d = e.data;
+		const href = `/${e.id.replace(/\/index$/, '')}/`;
+		const l = launcherOf(d);
+		const r = ratingOf(d);
+		const video = d.hasGameplayVideo ? videoUrl(e) : undefined;
+		return (
+			<li data-name={d.game!.toLowerCase()} data-status={isWorks(d) ? 'works' : 'todo'} data-steam={isSteam(d) ? 'yes' : 'no'}>
+				<a class="card" href={href}>
+					{d.image ? (
+						<img src={d.image} alt={`${d.game} on Linux`} loading="lazy" width="460" height="460" />
+					) : (
+						<div class="noimg">{d.game}</div>
+					)}
+					<div class="body">
+						<strong>{d.game}</strong>
+						<div class="badges">
+							<span class={`badge status st-${d.status ?? 'untested'}`}>{statusLabel[d.status ?? 'untested']}</span>
+							{l && l !== 'Steam' && <span class="badge">{l}</span>}
+							{isSteam(d) && (d.onSteam ? <span class="badge steam">Steam</span> : <span class="badge soon">Steam soon</span>)}
+							{r && <span class={`badge rating ${r}`}>{ratingLabel[r]}</span>}
+							{protondbWorks(d) && (
+								<span class="badge protondb" title={`ProtonDB: ${d.protondbTier}`}>
+									ProtonDB says it works
+								</span>
+							)}
+							{d.nadare && <span class="badge nadare">Nadare beta</span>}
+						</div>
+					</div>
+				</a>
+				{video && (
+					<a class="yt" href={video} target="_blank" rel="noopener" aria-label={`Watch the ${d.game} on Linux video on YouTube`} title="Watch the video on YouTube">
+						<svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><rect x="1" y="4" width="22" height="16" rx="4.5" fill="#f00" /><path d="M10 8.8v6.4l5.6-3.2z" fill="#fff" /></svg>
+					</a>
+				)}
+			</li>
+		);
+	})}
+</ul>
+
+<div class="table-wrap" hidden>
+	<table class="table">
+		<thead>
+			<tr>
+				<th scope="col">Game</th>
+				<th scope="col">Launcher</th>
+				<th scope="col">Rating</th>
+				<th scope="col">Store</th>
+				<th scope="col">Status</th>
+			</tr>
+		</thead>
+		<tbody>
+			{rows.map((e) => {
+				const d = e.data;
+				const href = `/${e.id.replace(/\/index$/, '')}/`;
+				const l = launcherOf(d);
+				const r = ratingOf(d);
+				return (
+					<tr data-name={d.game!.toLowerCase()} data-status={isWorks(d) ? 'works' : 'todo'} data-steam={isSteam(d) ? 'yes' : 'no'}>
+						<th scope="row">
+							<a href={href}>{d.game}</a>
+							{d.hasGameplayVideo && videoUrl(e) && (
+								<a class="yt-inline" href={videoUrl(e)} target="_blank" rel="noopener" aria-label={`Watch the ${d.game} on Linux video on YouTube`} title="Watch the video on YouTube">
+									<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><rect x="1" y="4" width="22" height="16" rx="4.5" fill="#f00" /><path d="M10 8.8v6.4l5.6-3.2z" fill="#fff" /></svg>
+								</a>
+							)}
+						</th>
+						<td>{l ?? '—'}</td>
+						<td>{r ? <span class={`pill rating ${r}`}>{ratingLabel[r]}</span> : '—'}</td>
+						<td>{d.onSteam ? 'Steam' : d.steamComingSoon ? 'Steam (soon)' : d.website ? 'Official site' : '—'}</td>
+						<td>
+							<span class={`pill st-${d.status ?? 'untested'}`}>{statusLabel[d.status ?? 'untested']}</span>
+							{protondbWorks(d) && (
+								<>
+									{' '}
+									<span class="pill protondb" title={`ProtonDB: ${d.protondbTier}`}>
+										ProtonDB says it works
+									</span>
+								</>
+							)}
+						</td>
+					</tr>
+				);
+			})}
+		</tbody>
+	</table>
+</div>
+
+<script>
+	const KEY = 'frostlinux-games-prefs';
+	const input = document.querySelector<HTMLInputElement>('.toolbar .search input');
+	const list = document.querySelector<HTMLElement>('.games');
+	const tableWrap = document.querySelector<HTMLElement>('.table-wrap');
+	const empty = document.querySelector<HTMLElement>('.empty');
+	const cards = [...document.querySelectorAll<HTMLElement>('.games > li')];
+	const trs = [...document.querySelectorAll<HTMLElement>('.table tbody tr')];
+
+	const state = { q: '', status: 'all', steam: 'all', view: 'grid', size: 'm' };
+	try {
+		Object.assign(state, JSON.parse(localStorage.getItem(KEY) || '{}'));
+	} catch {}
+
+	const press = (group: string, value: string) =>
+		document.querySelectorAll<HTMLButtonElement>(`[data-group="${group}"] button`).forEach((b) =>
+			b.setAttribute('aria-pressed', String((b.dataset as any)[group] === value)),
+		);
+
+	function matches(el: HTMLElement) {
+		const name = el.dataset.name ?? '';
+		const st = el.dataset.status;
+		const steam = el.dataset.steam;
+		if (state.q && !name.includes(state.q.toLowerCase())) return false;
+		if (state.status === 'works' && st !== 'works') return false;
+		if (state.status === 'todo' && st !== 'todo') return false;
+		if (state.steam === 'yes' && steam !== 'yes') return false;
+		if (state.steam === 'no' && steam !== 'no') return false;
+		return true;
+	}
+
+	function apply() {
+		let visible = 0;
+		cards.forEach((el) => {
+			const ok = matches(el);
+			el.hidden = !ok;
+			if (ok) visible++;
+		});
+		trs.forEach((el) => {
+			el.hidden = !matches(el);
+		});
+		if (empty) empty.hidden = visible > 0;
+		if (list) {
+			list.hidden = state.view !== 'grid';
+			list.dataset.size = state.size;
+		}
+		if (tableWrap) tableWrap.hidden = state.view !== 'table';
+		press('status', state.status);
+		press('steam', state.steam);
+		press('view', state.view);
+		press('size', state.size);
+		try {
+			localStorage.setItem(KEY, JSON.stringify(state));
+		} catch {}
+	}
+
+	input?.addEventListener('input', () => {
+		state.q = input.value;
+		apply();
+	});
+	document.querySelectorAll<HTMLButtonElement>('[data-group="status"] button').forEach((b) =>
+		b.addEventListener('click', () => {
+			state.status = b.dataset.status!;
+			apply();
+		}),
+	);
+	document.querySelectorAll<HTMLButtonElement>('[data-group="steam"] button').forEach((b) =>
+		b.addEventListener('click', () => {
+			state.steam = b.dataset.steam!;
+			apply();
+		}),
+	);
+	document.querySelectorAll<HTMLButtonElement>('[data-group="view"] button').forEach((b) =>
+		b.addEventListener('click', () => {
+			state.view = b.dataset.view!;
+			apply();
+		}),
+	);
+	document.querySelectorAll<HTMLButtonElement>('[data-group="size"] button').forEach((b) =>
+		b.addEventListener('click', () => {
+			state.size = b.dataset.size!;
+			apply();
+		}),
+	);
+	if (input) input.value = state.q;
+	apply();
+</script>
+
+<style is:global>
+	:root {
+		--sl-content-width: 90rem;
+	}
+</style>
+
+<style>
+	.stats {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 1rem;
+		margin: 1rem 0 1.25rem;
+	}
+	.stats div {
+		flex: 1 1 130px;
+		padding: 0.75rem 1rem;
+		border: 1px solid var(--sl-color-gray-5);
+		border-radius: 0.6rem;
+		background: var(--sl-color-bg-nav);
+	}
+	.stats strong {
+		display: block;
+		font-size: var(--sl-text-3xl);
+		color: var(--sl-color-accent-high);
+		line-height: 1.1;
+	}
+	.stats span {
+		color: var(--sl-color-gray-3);
+		font-size: var(--sl-text-sm);
+	}
+
+	.toolbar {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 0.5rem;
+		margin-bottom: 1.25rem;
+	}
+	.field.search {
+		flex: 1 1 100%;
+	}
+	.search input {
+		width: 100%;
+		padding: 0.5rem 0.85rem;
+		border-radius: 999px;
+		border: 1px solid var(--sl-color-gray-5);
+		background: var(--sl-color-bg);
+		color: var(--sl-color-white);
+		font: inherit;
+	}
+	.search input:focus {
+		outline: 2px solid var(--sl-color-accent);
+		outline-offset: 1px;
+	}
+	.group {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.15rem;
+		padding: 0.15rem;
+		border: 1px solid var(--sl-color-gray-5);
+		border-radius: 999px;
+		background: var(--sl-color-bg-nav);
+	}
+	.group button {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		cursor: pointer;
+		border: 0;
+		margin: 0;
+		background: transparent;
+		color: var(--sl-color-gray-2);
+		font: inherit;
+		font-size: var(--sl-text-sm);
+		line-height: 1.4;
+		padding: 0.3rem 0.55rem;
+		border-radius: 999px;
+	}
+	.group button[aria-pressed='true'] {
+		background: var(--sl-color-accent-low);
+		color: var(--sl-color-white);
+	}
+	.sr {
+		position: absolute;
+		width: 1px;
+		height: 1px;
+		overflow: hidden;
+		clip: rect(0 0 0 0);
+	}
+
+	/* Grid */
+	.games {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(var(--card-min, 200px), 1fr));
+		gap: 1rem;
+	}
+	.games[data-size='s'] { --card-min: 135px; }
+	.games[data-size='m'] { --card-min: 200px; }
+	.games[data-size='l'] { --card-min: 300px; }
+	.games[data-size='s'] .badges { display: none; }
+	.games[data-size='s'] strong { font-size: var(--sl-text-sm); }
+	.games li { margin: 0; padding: 0; position: relative; }
+	.yt {
+		position: absolute;
+		top: 0.5rem;
+		right: 0.5rem;
+		display: grid;
+		place-items: center;
+		line-height: 0;
+		filter: drop-shadow(0 1px 3px rgb(0 0 0 / 0.5));
+		transition: transform 0.15s;
+	}
+	.yt:hover { transform: scale(1.15); }
+	.yt-inline { display: inline-block; margin-inline-start: 0.4rem; vertical-align: middle; line-height: 0; }
+	.card {
+		display: block;
+		height: 100%;
+		border: 1px solid var(--sl-color-gray-5);
+		border-radius: 0.7rem;
+		overflow: hidden;
+		background: var(--sl-color-bg-nav);
+		text-decoration: none;
+		color: var(--sl-color-white);
+		transition: transform 0.15s, border-color 0.15s, box-shadow 0.15s;
+	}
+	.card:hover {
+		transform: translateY(-3px);
+		border-color: var(--sl-color-accent);
+		box-shadow: 0 6px 20px -10px var(--sl-color-accent);
+	}
+	img, .noimg {
+		display: block;
+		width: 100%;
+		aspect-ratio: 16 / 9;
+		object-fit: cover;
+		object-position: center;
+		margin: 0;
+		background: var(--sl-color-gray-6);
+	}
+	.noimg {
+		display: grid;
+		place-items: center;
+		padding: 0.5rem;
+		text-align: center;
+		color: var(--sl-color-gray-3);
+	}
+	.body { padding: 0.65rem 0.75rem 0.85rem; }
+	.badges { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-top: 0.45rem; }
+	.badge {
+		font-size: var(--sl-text-xs);
+		padding: 0.12rem 0.5rem;
+		border-radius: 999px;
+		border: 1px solid var(--sl-color-gray-5);
+		color: var(--sl-color-gray-2);
+		line-height: 1.5;
+		white-space: nowrap;
+	}
+	.badge.status {
+		font-weight: 600;
+		border-color: var(--sl-color-gray-3);
+		color: var(--sl-color-gray-1);
+	}
+	.badge.st-works {
+		border-color: var(--sl-color-green);
+		background: color-mix(in srgb, var(--sl-color-green) 18%, transparent);
+		color: var(--sl-color-green-high);
+	}
+	.badge.steam, .tier-platinum { border-color: var(--sl-color-accent); color: var(--sl-color-accent-high); }
+	.badge.community, .tier-gold { border-color: var(--sl-color-purple); color: var(--sl-color-purple-high); }
+	.badge.rating, .pill.rating { font-weight: 600; }
+	.badge.rating.out-of-the-box, .pill.rating.out-of-the-box {
+		border-color: var(--sl-color-green);
+		color: var(--sl-color-green-high);
+	}
+	.badge.rating.custom-proton, .pill.rating.custom-proton {
+		border-color: var(--sl-color-orange);
+		color: var(--sl-color-orange-high);
+	}
+	.tier-silver { border-color: var(--sl-color-gray-3); color: var(--sl-color-gray-2); }
+	.tier-bronze { border-color: var(--sl-color-orange); color: var(--sl-color-orange-high); }
+	.tier-borked { border-color: var(--sl-color-red); color: var(--sl-color-red-high); }
+	.badge.nadare { border-color: var(--sl-color-orange); color: var(--sl-color-orange-high); }
+	.badge.soon { border-style: dashed; }
+	.badge.protondb,
+	.pill.protondb {
+		border-style: dashed;
+		border-color: var(--sl-color-gray-3);
+		color: var(--sl-color-gray-1);
+	}
+	.badge.st-works, .pill.st-works { border-color: var(--sl-color-green); color: var(--sl-color-green-high); }
+	.badge.st-needs-fix, .badge.st-broken, .pill.st-needs-fix, .pill.st-broken {
+		border-color: var(--sl-color-red);
+		color: var(--sl-color-red-high);
+	}
+
+	/* Table */
+	.table-wrap {
+		overflow-x: auto;
+		border: 1px solid var(--sl-color-gray-5);
+		border-radius: 0.7rem;
+		background: var(--sl-color-bg-nav);
+	}
+	.table {
+		width: 100%;
+		border-collapse: collapse;
+		font-size: var(--sl-text-sm);
+	}
+	.table th, .table td {
+		text-align: left;
+		padding: 0.6rem 0.9rem;
+		border-bottom: 1px solid var(--sl-color-hairline, var(--sl-color-gray-6));
+		white-space: nowrap;
+	}
+	.table thead th {
+		position: sticky;
+		top: 0;
+		background: var(--sl-color-bg-nav);
+		color: var(--sl-color-gray-3);
+		font-weight: 600;
+		z-index: 1;
+	}
+	.table tbody tr:hover {
+		background: var(--sl-color-accent-low);
+	}
+	.table tbody th a {
+		color: var(--sl-color-white);
+		text-decoration: none;
+		font-weight: 600;
+	}
+	.table tbody th a:hover { text-decoration: underline; }
+	.pill {
+		display: inline-block;
+		font-size: var(--sl-text-xs);
+		padding: 0.1rem 0.5rem;
+		border-radius: 999px;
+		border: 1px solid var(--sl-color-gray-5);
+		color: var(--sl-color-gray-2);
+	}
+
+	.empty {
+		padding: 1rem;
+		text-align: center;
+		color: var(--sl-color-gray-3);
+	}
+	[hidden] { display: none !important; }
+</style>

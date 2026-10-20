@@ -1,0 +1,143 @@
+---
+title: "Chaos Zero Nightmare on Linux (Stove + WebView2)"
+description: "Play Chaos Zero Nightmare on Linux with Faugus or Heroic. Stove and WebView2 setup, Wayland and X11 fixes, and the crashpad_handler.exe fix."
+game: "Chaos Zero Nightmare"
+sidebar:
+  label: "Overview"
+image: "/images/czn2/hero.webp"
+rating: "out-of-the-box"
+status: "works"
+launcher: "faugus"
+protonVersion: ""
+hasGameplayVideo: true
+gameplay:
+  - id: "WXE_aHProwo"
+    title: "Does Chaos Zero Nightmare run on Linux (updated video in description)"
+onSteam: false
+website: "https://chaoszeronightmare.onstove.com/"
+nadare: true
+tags: ["chaos-zero-nightmare", "faugus", "heroic", "stove", "gacha"]
+---
+
+import { LinkCard, CardGrid } from '@astrojs/starlight/components';
+
+:::tip[Nadare (beta): one-click install]
+This game is supported by **Nadare**, a launcher that installs and configures it for you in one click. It is in beta, so the manual guide below always works as a fallback. [Learn more about Nadare](/nadare/).
+:::
+
+**Chaos Zero Nightmare** runs on Linux through the **Stove** client, which needs **Microsoft Edge WebView2** installed in the same Wine prefix. This page is the hub: pick your launcher below for the step-by-step guide, then use the shared prerequisites and fixes further down.
+
+## Choose your launcher
+
+<CardGrid>
+	<LinkCard
+		title="Faugus Launcher"
+		href="/guides/chaos-zero-nightmare/faugus/"
+		description="The method to use now. Heroic has had issues after the Season 2 update."
+	/>
+	<LinkCard
+		title="Heroic Games Launcher"
+		href="/guides/chaos-zero-nightmare/heroic/"
+		description="The original method. Use it if you already have it set up."
+	/>
+</CardGrid>
+
+The Stove, WebView2 and Wayland steps are shared by both launchers.
+
+## Video guides
+
+<iframe width="100%" height="315" src="https://www.youtube.com/embed/YBVMvz0JN8A" title="YouTube video player" loading="lazy" allowfullscreen></iframe>
+
+<iframe width="100%" height="315" src="https://www.youtube.com/embed/8yXdpD3urms" title="YouTube video player" loading="lazy" allowfullscreen></iframe>
+
+## What you need
+
+| Item | Description | Download link |
+|------|-------------|---------------|
+| **Stove Client** | Official client used to play the game on Linux | [Download here](https://store.onstove.com/en/download) |
+| **Microsoft Edge WebView2** | Runtime required by Stove (provides the web-view component) | [Get it from Microsoft](https://developer.microsoft.com/en-us/microsoft-edge/webview2?form=MA13LH) |
+| **Faugus Launcher** or **Heroic Games Launcher** | Front-end for installing and launching games | [Faugus on Flathub](https://flathub.org/en/apps/io.github.Faugus.faugus-launcher) / [Heroic on Flathub](https://flathub.org/en/apps/com.heroicgameslauncher.hgl) |
+
+> **Important:** download the **Evergreen Bootstrapper** for Microsoft Edge WebView2 and save it to your `Downloads` folder. Then download the Stove client using the link above or a search engine.
+
+![Microsoft Edge WebView2 Evergreen Bootstrapper download page](/images/czn/webview1.webp)
+![Stove client download page](/images/czn/stovedl.webp)
+
+## Fix: install freeze (Wayland or X11)
+
+### Wayland: enable Wine Wayland
+
+Try this first unless you are on X11 or Linux Mint. In Faugus, add this launch argument. In Heroic, switch on Wine Wayland in the game's settings.
+
+```bash
+PROTON_ENABLE_WAYLAND=1
+```
+
+![Heroic Wine Wayland switch](/images/czn/image2.webp)
+![Faugus Launcher Wayland setting for Stove](/images/czn2/image7.webp)
+
+### X11 and Linux Mint: virtual desktop
+
+For X11 sessions (i3, XFCE, Qtile, dwm, Linux Mint and so on), use this instead of Wayland:
+
+1. Open **Settings > WINECFG** (Faugus: **Tools > WINECFG**).
+2. Click **Install** to open the configuration window.
+3. Go to the **Graphics** tab.
+4. Check **Emulate virtual desktop** and adjust the size if you like.
+5. Click **Apply**, then **OK**.
+
+![Winecfg for X11](/images/czn2/image8.webp)
+![Wine configuration install window](/images/czn/image4.webp)
+![Wine Graphics tab with Emulate virtual desktop enabled](/images/czn/image5.webp)
+
+To revert, uncheck **Emulate virtual desktop** or disable Wine Wayland again.
+
+### Lutris
+
+Lutris is available on [Flathub](https://flathub.org/en/apps/net.lutris.Lutris).
+
+1. Open the Lutris settings for the game and add `PROTON_ENABLE_WAYLAND=1`.
+2. For a virtual desktop, select the game, press the arrow to reveal the menu, choose **Wine configuration** and enable **Emulate virtual desktop**.
+
+![Lutris environment variable for Wine Wayland](/images/czn/lutrisimage2.webp)
+![Lutris Wine configuration with virtual desktop enabled](/images/czn/lutrisimage1.webp)
+
+## Stove not launching (crashpad_handler.exe)
+
+If **Stove** no longer launches after following the normal guide, it is probably caused by **`crashpad_handler.exe`**.
+
+1. **Open your Wine prefix.** In Heroic go to **Settings > Game Options > Wine Prefix** and click **Browse Wine Prefix**.
+
+   ![Heroic settings with Browse Wine Prefix](/images/czn/image10.webp)
+
+2. Navigate to this path inside the prefix:
+
+   ```text
+   drive_c/ProgramData/Smilegate/LauncherService/App/
+   ```
+
+   ![Wine prefix folder containing crashpad_handler.exe](/images/czn/image7.webp)
+
+3. Find `crashpad_handler.exe` and either delete it or move it to a different folder.
+4. Launch Stove again. It should start normally.
+
+## Gameplay
+
+<div class="gameplay-grid"><figure><iframe src="https://www.youtube.com/embed/WXE_aHProwo" title="Does Chaos Zero Nightmare run on Linux (updated video in description)" loading="lazy" allowfullscreen></iframe><figcaption>Does Chaos Zero Nightmare run on Linux (updated video in description)</figcaption></figure></div>
+
+## Frequently asked questions
+
+**Can you play Chaos Zero Nightmare on Linux?**
+Yes. Install Stove and Microsoft Edge WebView2 in a Wine prefix with Faugus Launcher or Heroic Games Launcher.
+
+**Which launcher should I use?**
+Faugus Launcher, because Heroic has had issues after the Season 2 update. Heroic still works for many people.
+
+**Why does Stove not launch?**
+Usually `crashpad_handler.exe`. Deleting it or moving it out of `drive_c/ProgramData/Smilegate/LauncherService/App/` fixes it.
+
+**How do I fix the install freeze?**
+Enable Wine Wayland, or on X11 or Linux Mint enable Emulate virtual desktop in WINECFG.
+
+**Do I need WebView2?**
+Yes. Stove requires the Microsoft Edge WebView2 runtime.

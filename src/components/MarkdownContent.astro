@@ -1,0 +1,157 @@
+---
+import { getCollection } from 'astro:content';
+import Default from '@astrojs/starlight/components/MarkdownContent.astro';
+import { DISCORD_URL } from '../site.config.mjs';
+
+const data = Astro.locals.starlightRoute?.entry?.data ?? {};
+const steamUrl: string | undefined = data.steamUrl;
+const website: string | undefined = data.website;
+const game: string | undefined = data.game;
+const hero: string | undefined = data.heroImage;
+const steamSoon = Boolean(data.steamComingSoon) && !data.onSteam;
+const steamAppId: number | undefined = data.steamAppId;
+const tier: string | undefined = data.protondbTier;
+const show = Boolean(steamUrl || website);
+const wip = Boolean(data.wip);
+const isGuidePage = Boolean(game) && Astro.url.pathname.startsWith('/guides/');
+let related: { href: string; label: string }[] = [];
+if (isGuidePage) {
+	const all = await getCollection('docs', ({ id, data }) => id.startsWith('guides/') && !!data.game);
+	const slug = (id: string) => id.replace(/\/index$/, '').split('/').slice(0, 2).join('/');
+	const self = slug(Astro.locals.starlightRoute.entry.id);
+	const seen = new Set([self]);
+	const score = (d: any) => (d.launcher && d.launcher === data.launcher ? 2 : 0) + (d.onSteam && data.onSteam ? 1 : 0) + (d.status === 'works' ? 2 : 0);
+	related = all
+		.filter((e) => !e.id.includes('/') || /\/index$/.test(e.id) || e.id.split('/').length === 2)
+		.map((e) => ({ e, key: slug(e.id) }))
+		.filter(({ key }) => !seen.has(key) && seen.add(key))
+		.sort((a, b) => score(b.e.data) - score(a.e.data) || a.e.data.game!.localeCompare(b.e.data.game!))
+		.slice(0, 6)
+		.map(({ e, key }) => ({ href: `/${key}/`, label: `${e.data.game} on Linux` }));
+}
+---
+
+{wip && (
+	<aside class="wip-note" role="note">
+		<strong>Work in progress.</strong> This guide has not been fully tested by me yet and may change or have gaps. {DISCORD_URL && <>Spotted a problem? Tell us on <a href={DISCORD_URL}>Discord</a>.</>}
+	</aside>
+)}
+
+{hero && (
+	<figure class="guide-hero">
+		<img src={hero} alt={`${game ?? 'Game'} key art`} loading="eager" />
+	</figure>
+)}
+
+{show && (
+	<aside class="get-game">
+		<div class="txt">
+			<strong>Get {game ?? 'the game'}</strong>
+			<span>Official {steamUrl && website ? 'store page and website' : steamUrl ? (steamSoon ? 'store page (coming soon)' : 'Steam page') : 'website'}</span>
+		</div>
+		<div class="links">
+			{steamUrl && (
+				<a class="btn steam" href={steamUrl} target="_blank" rel="noopener">
+					Steam page{steamSoon ? ' (coming soon)' : ''}
+				</a>
+			)}
+			{website && (
+				<a class="btn" href={website} target="_blank" rel="noopener">
+					Official website
+				</a>
+			)}
+			{steamAppId && (
+				<a class="btn protondb" href={`https://www.protondb.com/app/${steamAppId}`} target="_blank" rel="noopener">
+					ProtonDB{tier ? `: ${tier[0].toUpperCase()}${tier.slice(1)}` : ''}
+				</a>
+			)}
+		</div>
+	</aside>
+)}
+
+<Default><slot /></Default>
+
+{related.length > 0 && (
+	<nav class="related" aria-label="More guides">
+		<h2>More Linux gacha guides</h2>
+		<ul>
+			{related.map((r) => <li><a href={r.href}>{r.label}</a></li>)}
+		</ul>
+		<p><a href="/games/">See the full compatibility list →</a></p>
+	</nav>
+)}
+
+<style>
+	.related { margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--sl-color-gray-5); }
+	.related h2 { font-size: var(--sl-text-lg); margin-bottom: 0.5rem; }
+	.related ul { display: flex; flex-wrap: wrap; gap: 0.5rem 1.25rem; padding: 0; list-style: none; }
+	.related li { margin: 0; }
+	.wip-note {
+		margin-bottom: 1.25rem;
+		padding: 0.75rem 1rem;
+		border: 1px solid var(--sl-color-orange);
+		border-inline-start-width: 4px;
+		border-radius: 0.4rem;
+		background: var(--sl-color-orange-low);
+		color: var(--sl-color-white);
+		font-size: var(--sl-text-sm);
+	}
+	.guide-hero {
+		margin: 0 0 1.5rem;
+	}
+	.guide-hero img {
+		display: block;
+		width: 100%;
+		aspect-ratio: 3.1 / 1;
+		object-fit: cover;
+		object-position: center;
+		border-radius: 0.7rem;
+		border: 1px solid var(--sl-color-gray-5);
+	}
+	.get-game {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: space-between;
+		gap: 1rem;
+		margin-block: 0 1.5rem;
+		padding: 1rem 1.25rem;
+		border: 1px solid var(--sl-color-gray-5);
+		border-radius: 0.6rem;
+		background: var(--sl-color-bg-nav);
+	}
+	.get-game .txt {
+		display: flex;
+		flex-direction: column;
+		gap: 0.15rem;
+	}
+	.get-game .txt span {
+		color: var(--sl-color-gray-3);
+		font-size: var(--sl-text-sm);
+	}
+	.get-game .links {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem;
+	}
+	.get-game .btn {
+		padding: 0.45rem 0.9rem;
+		border-radius: 0.4rem;
+		border: 1px solid var(--sl-color-gray-5);
+		color: var(--sl-color-white);
+		text-decoration: none;
+		font-weight: 600;
+		font-size: var(--sl-text-sm);
+	}
+	.get-game .btn:hover {
+		border-color: var(--sl-color-accent);
+	}
+	.get-game .btn.steam {
+		background: var(--sl-color-accent);
+		border-color: var(--sl-color-accent);
+		color: var(--sl-color-black);
+	}
+	.get-game .btn.protondb {
+		border-style: dashed;
+	}
+</style>

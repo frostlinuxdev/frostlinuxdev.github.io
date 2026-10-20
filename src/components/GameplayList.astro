@@ -1,0 +1,31 @@
+---
+import { getCollection } from 'astro:content';
+const all = await getCollection('docs', ({ id, data }) => id.startsWith('guides/') && (import.meta.env.DEV || !data.draft));
+const games = all
+	.filter((e) => e.data.gameplay?.length)
+	.sort((a, b) => a.data.game!.localeCompare(b.data.game!));
+---
+{games.map((e) => (
+	<section>
+		<h3><a href={`/${e.id.replace(/\/index$/, '')}/`}>{e.data.game}</a></h3>
+		<ul>
+			{e.data.gameplay!.map((v) => (
+				<li>
+					<a href={`https://youtu.be/${v.id}`} target="_blank" rel="noopener">
+						<img src={`https://i.ytimg.com/vi/${v.id}/mqdefault.jpg`} alt={v.title} loading="lazy" width="320" height="180" />
+						<span>{v.title}</span>
+					</a>
+				</li>
+			))}
+		</ul>
+	</section>
+))}
+
+<style>
+	section ul { list-style: none; padding: 0; margin: 0.5rem 0 1.5rem; display: flex; flex-wrap: wrap; gap: 1rem; }
+	section li { margin: 0; padding: 0; flex: 0 1 240px; }
+	a { text-decoration: none; }
+	li a { display: block; color: var(--sl-color-white); }
+	img { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 0.5rem; margin: 0; }
+	li span { display: block; margin-top: 0.3rem; font-size: var(--sl-text-xs); color: var(--sl-color-gray-3); }
+</style>
