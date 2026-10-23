@@ -1,7 +1,6 @@
 ---
 title: "How to Play Blue Archive on Linux"
 description: "Run Blue Archive on Linux through Steam with a Proton-GE runner installed via Proton Plus. Includes the account-linking step."
-wip: true
 game: "Blue Archive"
 sidebar:
   label: "Blue Archive"
@@ -24,8 +23,6 @@ tags: ["blue-archive", "gacha"]
 ---
 
 <iframe width="100%" height="315" src="https://www.youtube.com/embed/fkXJltMVoNM" title="YouTube video player" loading="lazy" allowfullscreen></iframe>
-
-> **Work in progress:** this guide was written from the FrostLinux video and has not been re-tested by me on a current install yet. Steps may change.
 
 Blue Archive runs on Linux through Steam using Proton-GE.
 

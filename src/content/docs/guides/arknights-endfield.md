@@ -1,7 +1,6 @@
 ---
 title: "How to Play Arknights: Endfield on Linux"
 description: "Arknights: Endfield on Linux: install from Steam and force Dawn Wine Proton, or use Heroic with the official Gryphline client. Screenshots included."
-wip: true
 game: "Arknights: Endfield"
 sidebar:
   label: "Arknights: Endfield"
@@ -27,8 +26,6 @@ Arknights: Endfield launched on **Steam** on 14 October 2026, which makes it the
 :::
 
 <iframe width="100%" height="315" src="https://www.youtube.com/embed/sG_UFq9HhbI" title="YouTube video player" loading="lazy" allowfullscreen></iframe>
-
-> **Work in progress:** this guide was written from the FrostLinux video and has not been re-tested by me on a current install yet. Steps may change.
 
 Arknights: Endfield is a **3D real-time strategy RPG** from Hypergryph, published by Gryphline. You play as the Endministrator of Endfield Industries, explore the planet **Talos-II**, build and defend your factories, and fight in real-time parties. It is free to play, cross-platform, and — since October 2026 — available natively on Steam.
 

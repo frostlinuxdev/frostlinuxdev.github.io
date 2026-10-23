@@ -1,7 +1,6 @@
 ---
 title: "How to Play Arknights on Linux"
 description: "Install Arknights on Linux with the official PC client through Heroic and Proton-CachyOS or DW-Proton, or in one click with the Nadare launcher."
-wip: true
 game: "Arknights"
 sidebar:
   label: "Arknights"
@@ -23,8 +22,6 @@ This game is supported by **Nadare**, a launcher that installs and configures it
 :::
 
 <iframe width="100%" height="315" src="https://www.youtube.com/embed/IyEp4NrIGFU" title="YouTube video player" loading="lazy" allowfullscreen></iframe>
-
-> **Work in progress:** this guide was written from the FrostLinux video and has not been re-tested by me on a current install yet. Steps may change.
 
 Arknights (the original game) now has a PC client that can be installed on Linux through [Heroic Games Launcher](https://flathub.org/en/apps/com.heroicgameslauncher.hgl) with Proton-CachyOS or DW-Proton.
 

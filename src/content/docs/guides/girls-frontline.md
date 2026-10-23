@@ -1,7 +1,6 @@
 ---
 title: "How to Play Girls' Frontline on Linux"
 description: "Run Girls' Frontline on Linux through Steam (native or Flatpak) with the default Proton, and know when to switch to DW-Proton or Proton-GE."
-wip: true
 game: "Girls' Frontline"
 sidebar:
   label: "Girls' Frontline"

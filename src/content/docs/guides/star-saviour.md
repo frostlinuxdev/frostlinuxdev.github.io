@@ -1,16 +1,15 @@
 ---
 title: "How to Play Star Saviour on Linux"
 description: "Star Saviour runs on Linux through Steam with the default Proton settings — no tweaks needed. Includes RTX 3060 gameplay footage."
-wip: true
 game: "Star Saviour"
 sidebar:
   label: "Star Saviour"
 image: "/images/star-saviour/thumb.webp"
 heroImage: "/images/star-saviour/hero.webp"
-noindex: true
 status: "works"
 launcher: "steam"
 protonVersion: "Proton (default)"
+rating: "out-of-the-box"
 hasGameplayVideo: true
 gameplay:
   - id: "OO621WuFxxM"
@@ -23,13 +22,19 @@ steamUrl: "https://store.steampowered.com/app/3609080/"
 tags: ["star-saviour", "gacha"]
 ---
 
-> **Works.** Star Saviour runs on Linux through **Steam** with the default Proton settings. Gameplay proof is at the bottom of the page.
+Star Saviour runs on Linux through **Steam** with the default Proton settings. There is nothing to install or configure besides the game itself.
 
 ## What you need
 
+| Item | Notes |
+|------|-------|
+| **Steam** | With Star Saviour installed |
+
 ## Steps
 
-## Troubleshooting
+1. Open Steam and install **Star Saviour** from its store page (linked above).
+2. Leave the compatibility settings alone. Steam uses its default Proton automatically.
+3. Press **Play**. The game launches and runs as it is.
 
 ## Gameplay
 

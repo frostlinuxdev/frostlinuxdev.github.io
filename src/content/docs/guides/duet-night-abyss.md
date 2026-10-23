@@ -1,7 +1,6 @@
 ---
 title: "How to Play Duet Night Abyss on Linux"
 description: "Run Duet Night Abyss on Linux through Heroic with the PC installer or the Epic Games Store, using a Proton-CachyOS or Proton-GE runner."
-wip: true
 game: "Duet Night Abyss"
 sidebar:
   label: "Duet Night Abyss"
@@ -20,8 +19,6 @@ tags: ["duet-night-abyss", "gacha"]
 ---
 
 <iframe width="100%" height="315" src="https://www.youtube.com/embed/_1hi3PAsVco" title="YouTube video player" loading="lazy" allowfullscreen></iframe>
-
-> **Work in progress:** this guide was written from the FrostLinux video and has not been re-tested by me on a current install yet. Steps may change.
 
 Duet Night Abyss runs on Linux with no tweaks needed. You can install it through [Heroic Games Launcher](https://flathub.org/en/apps/com.heroicgameslauncher.hgl) with the PC installer or through the Epic Games Store.
 

@@ -1,7 +1,6 @@
 ---
 title: "How to Play Stella Sora on Linux"
 description: "Play Stella Sora on Linux: install it from Steam and run it with Proton. Heroic and the Nadare launcher are covered as alternatives."
-wip: true
 game: "Stella Sora"
 sidebar:
   label: "Stella Sora"

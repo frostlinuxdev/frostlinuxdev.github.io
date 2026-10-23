@@ -1,7 +1,6 @@
 ---
 title: "How to Play Girls' Frontline 2: Exilium on Linux"
 description: "Run Girls' Frontline 2: Exilium on Linux — the Dark Winter client works with a Wine runner, while the HaoPlay client needs a Lutris install script."
-wip: true
 game: "Girls' Frontline 2: Exilium"
 sidebar:
   label: "Girls' Frontline 2: Exilium"
@@ -20,8 +19,6 @@ tags: ["girls-frontline-2", "gacha"]
 ---
 
 <iframe width="100%" height="315" src="https://www.youtube.com/embed/XIL1E97HWHA" title="YouTube video player" loading="lazy" allowfullscreen></iframe>
-
-> **Work in progress:** this guide was written from the FrostLinux video and has not been re-tested by me on a current install yet. Steps may change.
 
 Girls' Frontline 2: Exilium has two clients on Linux. The Dark Winter version should work out of the box with just a Wine runner selected, while the HaoPlay version needs an install script or manual setup.
 

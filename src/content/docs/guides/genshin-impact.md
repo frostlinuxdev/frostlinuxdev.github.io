@@ -1,7 +1,6 @@
 ---
 title: "How to Play Genshin Impact on Linux"
 description: "Install Genshin Impact on Linux with the An Anime Game Launcher, which sets up Wine and Proton for you. Login, updates and troubleshooting covered."
-wip: true
 game: "Genshin Impact"
 sidebar:
   label: "Genshin Impact"
@@ -21,8 +20,6 @@ tags: ["genshin-impact", "gacha", "aagl", "ttl"]
 ---
 
 <iframe width="100%" height="315" src="https://www.youtube.com/embed/VLeBCcRKdJ4" title="YouTube video player" loading="lazy" allowfullscreen></iframe>
-
-> **Work in progress:** this guide was written from the FrostLinux video and has not been re-tested by me on a current install yet. Steps may change.
 
 Genshin Impact can be installed on Linux with a community launcher that automates the Wine/Proton setup, so you do not configure a runner by hand.
 

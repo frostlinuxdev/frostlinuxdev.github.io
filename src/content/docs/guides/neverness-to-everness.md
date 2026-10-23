@@ -1,7 +1,6 @@
 ---
 title: "How to Play Neverness to Everness on Linux"
 description: "Run Neverness to Everness (NTE) on Linux with Heroic Games Launcher and DW-Proton, including the important C: drive install location."
-wip: true
 game: "Neverness to Everness"
 sidebar:
   label: "Neverness to Everness"
@@ -24,8 +23,6 @@ tags: ["neverness-to-everness", "gacha"]
 ---
 
 <iframe width="100%" height="315" src="https://www.youtube.com/embed/CGmwdh34jhk" title="YouTube video player" loading="lazy" allowfullscreen></iframe>
-
-> **Work in progress:** this guide was written from the FrostLinux video and has not been re-tested by me on a current install yet. Steps may change.
 
 Neverness to Everness (NTE) runs on Linux using [Heroic Games Launcher](https://flathub.org/en/apps/com.heroicgameslauncher.hgl) with DW-Proton. The important step is changing the install location to the C drive.
 

@@ -1,7 +1,6 @@
 ---
 title: "How to Play Zenless Zone Zero on Linux"
 description: "Run Zenless Zone Zero on Linux with a community launcher (Sleepy Launcher or TwintailLauncher) that handles the Wine setup, the same way as Genshin Impact."
-wip: true
 game: "Zenless Zone Zero"
 sidebar:
   label: "Zenless Zone Zero"
@@ -22,8 +21,6 @@ tags: ["zenless-zone-zero", "gacha"]
 ---
 
 <iframe width="100%" height="315" src="https://www.youtube.com/embed/E2I6Yv9HRF0" title="YouTube video player" loading="lazy" allowfullscreen></iframe>
-
-> **Work in progress:** this guide was written from the FrostLinux video and has not been re-tested by me on a current install yet. Steps may change.
 
 Zenless Zone Zero installs on Linux through a community launcher that handles the Wine setup, the same way as the Genshin Impact guide.
 
