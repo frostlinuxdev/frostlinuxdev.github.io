@@ -1,41 +1,51 @@
 ---
-title: "Nadare: One-Click Gacha Game Launcher for Linux (Beta)"
-description: Nadare is a launcher that installs supported gacha games on Linux in one click. Download the 0.1.0 beta AppImage.
+title: "Nadare Launcher: Play Genshin, Star Rail, Wuthering Waves and More on Linux"
+description: Nadare is an open-source Linux launcher for anime games. Install Genshin Impact, Honkai Star Rail, Zenless Zone Zero, Wuthering Waves, Endfield, NIKKE and more from one Store window. Free AppImage, beta.
 tableOfContents: false
 ---
 
 import NadareGames from '../../components/NadareGames.astro';
 
-**Nadare** is a launcher that installs and configures supported games on Linux in a single click, so you do not have to follow a manual guide step by step. It is currently in **beta**.
-
-Pick the game, press install, play. For anything it does not cover yet, the written guides on this site still apply, and every supported game keeps its manual guide as a fallback.
+**Nadare** is an open-source launcher that installs and runs anime games on Linux. Open the **Store**, pick a game, press **Install**, then press **Play**. Nadare downloads the game from the publisher, sets up Wine/Proton for you and keeps it updated, with one profile per game. It is in **beta**.
 
 <NadareGames />
 
+<img src="/images/nadare/store.webp" alt="The Nadare Store: a grid of supported anime games with their tier and install size" loading="lazy" />
+
 <div class="shot-grid">
-  <img src="/images/nadare/library.webp" alt="Nadare library showing Chaos Zero Nightmare, Arknights and Stella Sora" loading="lazy" />
+  <img src="/images/nadare/library.webp" alt="Nadare library showing installed games" loading="lazy" />
   <img src="/images/nadare/game.webp" alt="Nadare game page with the one-click action button and the game's news feed" loading="lazy" />
 </div>
 
 ## Get started
 
-1. Download the `.AppImage` file from the [latest release page](https://github.com/frostlinuxdev/nadare/releases/latest).
+1. Download `Nadare-<version>-x86_64.AppImage` from the [latest release](https://github.com/frostlinuxdev/nadare/releases/latest) and, if you like, check it against the `SHA256SUMS` file next to it.
 2. Make it executable (`chmod +x Nadare-*-x86_64.AppImage`) or tick "Allow executing as program" in your file manager.
-3. Double-click it. Nadare downloads what it needs (Proton, WebView2 and so on) on first use.
+3. Double-click it, open the **Store**, pick a game and press **Install**. Nadare downloads what it needs (a Proton runner and so on) on first use.
 
-A `SHA256SUMS` file sits next to the download if you want to verify it.
+You need a Linux x86_64 desktop (Wayland or X11) with glibc 2.35 or newer (Ubuntu 22.04+, Debian 12+, Fedora 36+, current Arch) and a working Vulkan driver, including its 32-bit Vulkan support. Run `./Nadare-*.AppImage doctor` if something is missing; it prints the fix.
 
 ## Supported games
 
-- **Chaos Zero Nightmare**: install, update, QR login and launch. Tested on NVIDIA and AMD.
-- **Arknights** (EN): install, update and launch through Proton.
-- **Stella Sora** (EN): install, update and launch through Proton. It is also on Steam, which we recommend over Nadare; see the [guide](/guides/stella-sora/).
+Every game has a tier. **Verified** means a maintainer installed it through Nadare and played it past the title screen. **Experimental** means the install is covered by tests but has not been played end to end, or needs a workaround.
 
-Newer betas add many more games, each marked Verified or Experimental in Nadare's Add Game list; the [release notes](https://github.com/frostlinuxdev/nadare/releases/latest) say what each version supports. Fate/Grand Order is not in the downloadable AppImage yet.
+| Game | Tier |
+|---|---|
+| Chaos Zero Nightmare | Verified (install, update, QR login, launch) |
+| Arknights, Stella Sora | Verified |
+| Brown Dust 2, Aether Gazer, Punishing: Gray Raven | Verified |
+| Girls' Frontline 2 (Darkwinter build), Honkai Impact 3rd | Verified |
+| Arknights: Endfield, Neverness to Everness (direct install) | Verified |
+| Genshin Impact, Honkai: Star Rail, Zenless Zone Zero | Experimental (checked as far as the login screen) |
+| Wuthering Waves, Mongil: Star Dive, NIKKE | Experimental |
+| Girls' Frontline 2 (Haoplay global build), Neverness to Everness (publisher's launcher) | Experimental |
+| Fate/Grand Order (NA) | Experimental, source checkouts only |
+
+The written guides on this site still apply to every game, and each keeps its manual guide as a fallback.
 
 ## Beta notes
 
-- Only some games are supported, and the list grows over time.
-- Things may break or change between releases.
+- Nadare is unofficial community software and is not affiliated with any game publisher. It may break a game's Terms of Service, so use an account you can afford to lose.
+- Things may break or change between releases. Nadare shows a banner when a new release is out.
 - If something fails, use the manual guide for that game and report it on [GitHub issues](https://github.com/frostlinuxdev/nadare/issues).
 - Source and full docs: [github.com/frostlinuxdev/nadare](https://github.com/frostlinuxdev/nadare).
