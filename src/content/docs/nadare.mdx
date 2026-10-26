@@ -5,7 +5,7 @@ tableOfContents: false
 ---
 
 import NadareGames from '../../components/NadareGames.astro';
-import { NADARE_REPO_URL } from '../../site.config.mjs';
+import { NADARE_REPO_URL, NADARE_URL } from '../../site.config.mjs';
 
 **Nadare** is a launcher that installs and configures supported games on Linux in a single click, so you do not have to follow a manual guide step by step. It is currently in **beta**.
 
@@ -20,11 +20,11 @@ Pick the game, press install, play. For anything it does not cover yet, the writ
 
 ## Get started
 
-1. Download `Nadare-0.1.0b1-x86_64.AppImage` from the release page.
-2. Make it executable (`chmod +x Nadare-0.1.0b1-x86_64.AppImage`) or tick "Allow executing as program" in your file manager.
+1. Download the `Nadare-<version>-x86_64.AppImage` file from the [latest release page]({NADARE_URL}).
+2. Make it executable (`chmod +x Nadare-*-x86_64.AppImage`) or tick "Allow executing as program" in your file manager.
 3. Double-click it. Nadare downloads what it needs (Proton, WebView2 and so on) on first use.
 
-A `.sha256` file sits next to the download if you want to verify it.
+A `SHA256SUMS` file sits next to the download if you want to verify it.
 
 ## Supported games
 
@@ -32,7 +32,7 @@ A `.sha256` file sits next to the download if you want to verify it.
 - **Arknights** (EN): install, update and launch through Proton.
 - **Stella Sora** (EN): install, update and launch through Proton. It is also on Steam, which we recommend over Nadare; see the [guide](/guides/stella-sora/).
 
-Fate/Grand Order is in the code but does not install in this beta; it is planned for 0.1.0b2.
+Newer betas add many more games, each marked Verified or Experimental in Nadare's Add Game list; the [release notes]({NADARE_URL}) say what each version supports. Fate/Grand Order is not in the downloadable AppImage yet.
 
 ## Beta notes
 
