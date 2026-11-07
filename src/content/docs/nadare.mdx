@@ -12,11 +12,16 @@ import NadareGames from '../../components/NadareGames.astro';
 
 ## Get started
 
-1. Download `Nadare-<version>-x86_64.AppImage` from the [latest release](https://github.com/frostlinuxdev/nadare/releases/latest) and, if you like, check it against the `SHA256SUMS` file next to it.
-2. Make it executable (`chmod +x Nadare-*-x86_64.AppImage`) or tick "Allow executing as program" in your file manager.
-3. Double-click it, open the **Store**, pick a game and press **Install**. Nadare downloads what it needs (a Proton runner and so on) on first use.
+1. Download the file that ends in `.AppImage` from the button above (the [latest release](https://github.com/frostlinuxdev/nadare/releases/latest) page).
+2. Make it executable: right-click it, Properties, tick "Allow executing as program" (or run `chmod +x Nadare-*.AppImage`).
+3. Double-click it, open the **Store**, pick a game and press **Install**.
 
-You need a Linux x86_64 desktop (Wayland or X11) with glibc 2.35 or newer (Ubuntu 22.04+, Debian 12+, Fedora 36+, current Arch) and a working Vulkan driver, including its 32-bit Vulkan support. Run `./Nadare-*.AppImage doctor` if something is missing; it prints the fix.
+<details>
+<summary>System requirements</summary>
+
+A Linux x86_64 desktop (Wayland or X11) with a working Vulkan driver, including its 32-bit support, and glibc 2.35 or newer (Ubuntu 22.04, Debian 12, Fedora 36 or newer, current Arch). If something is missing, run `./Nadare-*.AppImage doctor` in a terminal; it prints the fix. Nadare downloads its own Proton runner on first use.
+
+</details>
 
 <img src="/images/nadare/store.webp" alt="The Nadare Store: every supported game with its tier and install size" loading="lazy" />
 

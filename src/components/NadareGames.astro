@@ -2,11 +2,13 @@
 import { NADARE_URL } from '../site.config.mjs';
 ---
 <p class="cta">
-	<a href={NADARE_URL} target="_blank" rel="noopener">Download the latest Nadare</a>
+	<a href={NADARE_URL} target="_blank" rel="noopener">Download Nadare (AppImage)</a>
 	<span class="beta">Beta</span>
 </p>
+<p class="cta-note">One file, nothing to install. On the page that opens, download the file that ends in <code>.AppImage</code>.</p>
 
 <style>
+	.cta-note { margin-block: -0.5rem 1.25rem; font-size: var(--sl-text-sm); color: var(--sl-color-gray-2); }
 	.cta { display: flex; align-items: center; gap: 0.75rem; margin-block: 1.25rem; }
 	.cta a {
 		padding: 0.6rem 1.1rem;
