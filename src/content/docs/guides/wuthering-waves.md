@@ -15,7 +15,12 @@ steamAppId: 3513350
 protondbTier: "gold"
 website: "https://wutheringwaves.kurogames.com/"
 tags: ["wuthering-waves", "steam", "proton", "gacha"]
+nadare: true
 ---
+
+:::tip[Nadare (beta): one-click install]
+**Nadare**, a launcher that installs and configures this game for you, supports it. Open the Store, press **Install**, then **Play**. Tier: **Verified** Verified: a maintainer installed it through Nadare and played it past the title screen. The Steam version below stays the simplest route. It is in beta, so the manual guide below always works as a fallback. [Learn more about Nadare](/nadare/).
+:::
 
 Wuthering Waves runs on Linux through **Steam** with the **DW-Proton** compatibility tool. DW-Proton is installed with **ProtonPlus**, and you then tell Steam (or ProtonPlus) to use it for the game. This guide covers the full setup.
 

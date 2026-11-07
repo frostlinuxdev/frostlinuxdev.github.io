@@ -11,7 +11,22 @@ protonVersion: ""
 onSteam: false
 website: "https://nikke-en.com/"
 tags: ["nikke", "heroic", "proton", "gacha"]
+nadare: false
 ---
+
+:::caution[NIKKE PC launcher: tampered scripts, fixed by the publisher on 4 November 2026]
+On 3 to 4 November 2026 researchers found that official scripts on Level Infinite's servers had been changed to load a remote-control program when the NIKKE PC launcher opened (from 27 September, and in some launches from 23 October). It also worked on Linux and the Steam Deck through Proton, because Wine can see your home folder. On 4 November Level Infinite confirmed that the launcher's script files had been tampered with by a third party and said it had fixed them; it is still investigating how many people were affected.
+
+**Do this before you open the launcher again**
+1. Quit the launcher completely, also from the tray.
+2. Delete the launcher's `tbs_cache` folder (inside `nikke_launcher`, in your Wine prefix). Old copies of the bad scripts can stay there.
+
+**Check whether it ran on your machine** if you opened the launcher since 27 September: search `Launcher/intl_service/debug.log` for `k2f_chan registered`. Nothing found is good, but not proof (reinstalling the game erases old logs).
+
+**If you find it:** treat the computer as compromised. From another device change your passwords (email first), sign out of all sessions, replace SSH keys and tokens, move crypto to a new wallet. Reinstalling the system is the safest fix.
+
+Details: [the researchers' write-up](https://gist.github.com/MotherSphere/d6c049a09ba8ac3085c51ee9df24a4e5).
+:::
 
 NIKKE: Goddess of Victory can be played on Linux using **Heroic Games Launcher** and a **DW-Proton** runner installed with **ProtonPlus**. This guide walks through the whole process in one place: installing the tools, adding the game to Heroic, installing it, and the extra settings that make it launch consistently.
 

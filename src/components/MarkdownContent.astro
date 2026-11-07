@@ -6,12 +6,14 @@ import { DISCORD_URL } from '../site.config.mjs';
 const data = Astro.locals.starlightRoute?.entry?.data ?? {};
 const steamUrl: string | undefined = data.steamUrl;
 const website: string | undefined = data.website;
+const launcherUrl: string | undefined = data.launcherUrl;
+const launcherName: string | undefined = data.launcherName;
 const game: string | undefined = data.game;
 const hero: string | undefined = data.heroImage;
 const steamSoon = Boolean(data.steamComingSoon) && !data.onSteam;
 const steamAppId: number | undefined = data.steamAppId;
 const tier: string | undefined = data.protondbTier;
-const show = Boolean(steamUrl || website);
+const show = Boolean(steamUrl || website || launcherUrl);
 const wip = Boolean(data.wip);
 const isGuidePage = Boolean(game) && Astro.url.pathname.startsWith('/guides/');
 let related: { href: string; label: string }[] = [];
@@ -47,7 +49,7 @@ if (isGuidePage) {
 	<aside class="get-game">
 		<div class="txt">
 			<strong>Get {game ?? 'the game'}</strong>
-			<span>Official {steamUrl && website ? 'store page and website' : steamUrl ? (steamSoon ? 'store page (coming soon)' : 'Steam page') : 'website'}</span>
+			<span>Official {steamUrl && website ? 'store page and website' : steamUrl ? (steamSoon ? 'store page (coming soon)' : 'Steam page') : 'website'}{launcherUrl ? ' and launcher' : ''}</span>
 		</div>
 		<div class="links">
 			{steamUrl && (
@@ -58,6 +60,11 @@ if (isGuidePage) {
 			{website && (
 				<a class="btn" href={website} target="_blank" rel="noopener">
 					Official website
+				</a>
+			)}
+			{launcherUrl && (
+				<a class="btn" href={launcherUrl} target="_blank" rel="noopener">
+					{launcherName ?? 'Launcher'} on Flathub
 				</a>
 			)}
 			{steamAppId && (

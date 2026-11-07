@@ -1,6 +1,6 @@
 ---
-title: "Nadare Launcher: Play Genshin, Star Rail, Wuthering Waves and More on Linux"
-description: Nadare is an open-source Linux launcher for anime games. Install Genshin Impact, Honkai Star Rail, Zenless Zone Zero, Wuthering Waves, Endfield, NIKKE and more from one Store window. Free AppImage, beta.
+title: "Nadare Launcher: Play Chaos Zero Nightmare, Arknights, Endfield and More on Linux"
+description: "Nadare is an open-source Linux launcher for anime games. Install Chaos Zero Nightmare, Arknights, Endfield, Punishing: Gray Raven, Stella Sora, Genshin Impact, Honkai Star Rail and more from one Store window. Free AppImage, beta."
 tableOfContents: false
 ---
 
@@ -9,15 +9,6 @@ import NadareGames from '../../components/NadareGames.astro';
 **Nadare** is an open-source launcher that installs and runs anime games on Linux. Open the **Store**, pick a game, press **Install**, then press **Play**. Nadare downloads the game from the publisher, sets up Wine/Proton for you and keeps it updated, with one profile per game. It is in **beta**.
 
 <NadareGames />
-
-<img src="/images/nadare/store.webp" alt="The Nadare Store: a grid of supported anime games with their tier and install size" loading="lazy" />
-
-<img src="/images/nadare/store-more.webp" alt="More of the Nadare Store, including the Hoyoverse games" loading="lazy" />
-
-<div class="shot-grid">
-  <img src="/images/nadare/library.webp" alt="Nadare library showing installed games" loading="lazy" />
-  <img src="/images/nadare/game.webp" alt="Nadare game page with the one-click action button and the game's news feed" loading="lazy" />
-</div>
 
 ## Get started
 
@@ -33,15 +24,34 @@ Every game has a tier. **Verified** means a maintainer installed it through Nada
 
 | Game | Tier |
 |---|---|
-| Chaos Zero Nightmare | Verified (install, update, QR login, launch) |
+| Chaos Zero Nightmare | Verified (install, update, QR login including two-step (OTP) accounts, agreeing to the game's terms, launch) |
 | Arknights, Stella Sora | Verified |
 | Brown Dust 2, Aether Gazer, Punishing: Gray Raven | Verified |
-| Girls' Frontline 2 (Darkwinter build), Honkai Impact 3rd | Verified |
-| Arknights: Endfield, Neverness to Everness (direct install) | Verified |
-| Genshin Impact, Honkai: Star Rail, Zenless Zone Zero | Experimental (checked as far as the login screen) |
-| Wuthering Waves, Mongil: Star Dive, NIKKE | Experimental |
-| Girls' Frontline 2 (Haoplay global build), Neverness to Everness (publisher's launcher) | Experimental |
-| Fate/Grand Order (NA) | Experimental, source checkouts only |
+| Girls' Frontline 2 (Darkwinter build and Haoplay global build), Honkai Impact 3rd | Verified |
+| Genshin Impact, Honkai: Star Rail, Zenless Zone Zero | Verified |
+| Wuthering Waves | Verified |
+| NIKKE | Verified. Its PC launcher scripts were tampered with and fixed by the publisher on 4 November 2026: clear the launcher's `tbs_cache` before opening it |
+| Arknights: Endfield, Neverness to Everness (direct install), Mongil: Star Dive | Verified |
+| Girls' Frontline 2 (Haoplay launcher), Neverness to Everness (publisher's launcher) | Experimental |
+| Fate/Grand Order (NA) | Experimental, source checkouts only, needs podman and an NVIDIA GPU |
+| Epic Seven, Umamusume: Pretty Derby, Blue Archive (through Steam) | Verified (see below) |
+
+## Steam games
+
+Some games come from Steam, not from the publisher. Steam stays the downloader and owner; Nadare adds a **Set up** button that checks the game and fixes what usually goes wrong on Linux, least invasive first, always asking before it changes anything and with **Undo**:
+
+- **H.264 video** for games whose opening video shows a white window (Umamusume).
+- **Microsoft WebView2** in the game's Wine prefix (Epic Seven's sign-in needs it). The prefix is backed up first.
+- **A better runner** (DW-Proton, or GE-Proton for Girls' Frontline 2 Haoplay) and, on Wayland, **native Wayland**.
+
+## What is new
+
+- **Sandbox** (experimental, off by default): one switch on a game's page hides your home folder, other drives, the session bus, the keyring and the ssh/gpg agents from the game while it plays. It needs `bubblewrap`.
+- **Wuthering Waves: choose SD, HD or UHD** in Settings, taken from Kuro's own bundle index.
+- **Genshin Impact, Honkai: Star Rail, Zenless Zone Zero, Wuthering Waves, GFL2 (Haoplay) and NIKKE are Verified.**
+- **Download speed** is shown beside the downloaded size, and a desktop notification tells you when an install, update or repair finishes.
+- **Safer by default:** size and path limits on archives and manifests, a proxy Nadare cannot use is refused instead of going direct, saved logins never go into a plaintext keyring, games no longer inherit common API keys, and logs and support reports mask more secrets.
+- **Steam Set up** keeps its Undo with the Steam installation it was made in.
 
 The written guides on this site still apply to every game, and each keeps its manual guide as a fallback.
 

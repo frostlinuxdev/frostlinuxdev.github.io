@@ -19,7 +19,12 @@ steamAppId: 4732690
 protondbTier: "platinum"
 steamUrl: "https://store.steampowered.com/app/4732690/"
 tags: ["arknights-endfield", "gacha"]
+nadare: true
 ---
+
+:::tip[Nadare (beta): one-click install]
+**Nadare**, a launcher that installs and configures this game for you, supports it. Open the Store, press **Install**, then **Play**. Tier: **Verified** Verified: a maintainer installed it through Nadare and played it past the title screen. Steam players can also just use the Steam version. It is in beta, so the manual guide below always works as a fallback. [Learn more about Nadare](/nadare/).
+:::
 
 :::tip[Now on Steam]
 Arknights: Endfield launched on **Steam** on 14 October 2026, which makes it the easiest way to play on Linux — no separate installer and no manual Wine prefix. See the news post: [Arknights: Endfield is now on Steam](/news/arknights-endfield-now-on-steam/).

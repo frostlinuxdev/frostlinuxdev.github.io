@@ -15,7 +15,12 @@ gameplay:
 onSteam: false
 website: "https://aethergazer.com/"
 tags: ["aether-gazer", "heroic", "proton", "old-gpu", "gacha"]
+nadare: true
 ---
+
+:::tip[Nadare (beta): one-click install]
+**Nadare**, a launcher that installs and configures this game for you, supports it. Open the Store, press **Install**, then **Play**. Tier: **Verified** Verified: a maintainer installed it through Nadare and played it past the title screen. It is in beta, so the manual guide below always works as a fallback. [Learn more about Nadare](/nadare/).
+:::
 
 <iframe width="100%" height="315" src="https://www.youtube.com/embed/j08YFuLEeD8" title="YouTube video player" loading="lazy" allowfullscreen></iframe>
 

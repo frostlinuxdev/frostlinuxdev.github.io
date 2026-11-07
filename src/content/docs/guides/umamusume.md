@@ -15,7 +15,12 @@ steamAppId: 3224770
 protondbTier: "platinum"
 website: "https://umamusume.com/"
 tags: ["umamusume", "steam", "proton", "gacha"]
+nadare: true
 ---
+
+:::tip[Nadare (beta): Steam Set up]
+**Nadare** can add this Steam game to its library and open a **Set up** checklist. For Umamusume it unlocks **H.264 video** for your Steam account, which fixes the white window during the opening video. Every step asks first and has **Undo**. Steam stays the downloader. Tier: **Verified**. It is in beta, so the manual steps below always work. [Learn more about Nadare](/nadare/).
+:::
 
 Umamusume: Pretty Derby runs on Linux through **Steam** and Proton. For most people the default Steam settings work. If you get a **white screen**, the fix is a one-time command that unlocks Steam's H.264 media decoder. If that still fails, switch the game to **Proton-GE** with ProtonPlus.
 

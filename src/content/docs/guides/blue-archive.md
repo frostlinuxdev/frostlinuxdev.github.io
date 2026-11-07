@@ -20,7 +20,12 @@ steamAppId: 3557620
 protondbTier: "platinum"
 steamUrl: "https://store.steampowered.com/app/3557620/"
 tags: ["blue-archive", "gacha"]
+nadare: true
 ---
+
+:::tip[Nadare (beta): Steam Set up]
+**Nadare** can add this Steam game to its library and open a **Set up** checklist (it starts on Proton Experimental). Every step asks first and has **Undo**. Steam stays the downloader. Tier: **Verified**. It is in beta, so the manual steps below always work. [Learn more about Nadare](/nadare/).
+:::
 
 <iframe width="100%" height="315" src="https://www.youtube.com/embed/fkXJltMVoNM" title="YouTube video player" loading="lazy" allowfullscreen></iframe>
 

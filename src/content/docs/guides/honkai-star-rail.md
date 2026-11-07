@@ -11,10 +11,16 @@ status: "works"
 launcher: "twintail"
 protonVersion: "DW-Proton (Dawn Winery) latest"
 launcherName: "Honkers Railway Launcher"
+launcherUrl: "https://flathub.org/en/apps/moe.launcher.the-honkers-railway-launcher"
 onSteam: false
 website: "https://hsr.hoyoverse.com/"
 tags: ["honkai-star-rail", "gacha"]
+nadare: true
 ---
+
+:::tip[Nadare (beta): one-click install]
+**Nadare**, a launcher that installs and configures this game for you, supports it. Open the Store, press **Install**, then **Play**. Tier: **Verified** Verified: a maintainer installed it through Nadare and played it past the title screen. It is in beta, so the manual guide below always works as a fallback. [Learn more about Nadare](/nadare/).
+:::
 
 > **Works.** Tested on Linux with the **DW-Proton (Dawn Winery)** runner through the Honkers Railway Launcher. No video yet.
 

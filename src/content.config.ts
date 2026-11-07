@@ -19,6 +19,7 @@ export const collections = {
 				launcher: z.enum(['steam', 'heroic', 'faugus', 'lutris', 'twintail', 'heroic-or-faugus', '']).optional(),
 				protonVersion: z.string().optional(),
 				launcherName: z.string().optional(),
+				launcherUrl: z.string().url().optional(),
 				hasGameplayVideo: z.boolean().optional(),
 				gameplay: z.array(z.object({ id: z.string(), title: z.string() })).optional(),
 				onSteam: z.boolean().optional(),
