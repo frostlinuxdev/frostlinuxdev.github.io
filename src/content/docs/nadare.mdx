@@ -13,8 +13,13 @@ import NadareGames from '../../components/NadareGames.astro';
 ## Get started
 
 1. Download the file that ends in `.AppImage` from the button above (the [latest release](https://github.com/frostlinuxdev/nadare/releases/latest) page).
-2. Make it executable: right-click it, Properties, tick "Allow executing as program" (or run `chmod +x Nadare-*.AppImage`).
-3. Double-click it, open the **Store**, pick a game and press **Install**.
+2. Let it run. A downloaded file is not allowed to run yet, so double-clicking it right away does nothing at all. Pick one:
+   - **Easiest, no terminal:** install [Gear Lever](https://flathub.org/apps/it.mijorus.gearlever) from your Software Manager (Flathub), then double-click the AppImage and press **Move to the app menu**. Nadare is then in your menu like any other app.
+   - **No extra app:** right-click the AppImage, **Properties**, **Permissions**, tick **Allow executing file as program**, then double-click it.
+   - **Terminal:** `chmod +x Nadare-*.AppImage && ./Nadare-*.AppImage`
+3. Open the **Store**, pick a game and press **Install**.
+
+<img src="/images/nadare/gearlever-open.webp" alt="Gear Lever opening the Nadare AppImage: Launch, or Move to the app menu" loading="lazy" width="400" />
 
 <details>
 <summary>System requirements</summary>
